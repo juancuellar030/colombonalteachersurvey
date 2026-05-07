@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Evaluación Docente - Colombo Inglés del Huila</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Martel+Sans:wght@300;400;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -53,7 +56,7 @@
         }
 
         body {
-            font-family: 'Martel Sans', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -71,7 +74,7 @@
             width: 130px;
             height: 130px;
             object-fit: contain;
-            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
             z-index: 1000;
             transition: transform 0.3s ease;
         }
@@ -143,7 +146,7 @@
             max-width: 900px;
             background: var(--card-bg);
             border-radius: 30px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             overflow: hidden;
             animation: slideIn 0.5s ease-out;
             transition: background 0.3s ease;
@@ -155,6 +158,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -249,25 +253,25 @@
 
         /* Intro Disclaimer */
         .intro-disclaimer {
-            background: linear-gradient(135deg, 
-                rgba(255, 250, 250, 0.8) 0%, 
-                rgba(248, 252, 255, 0.9) 100%);
+            background: linear-gradient(135deg,
+                    rgba(255, 250, 250, 0.8) 0%,
+                    rgba(248, 252, 255, 0.9) 100%);
             border-radius: 15px;
             padding: 25px 30px;
             margin-bottom: 35px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
             transition: background 0.3s ease, border-color 0.3s ease;
         }
 
         [data-theme="dark"] .intro-disclaimer {
-            background: linear-gradient(135deg, 
-                rgba(38, 47, 65, 0.7) 0%, 
-                rgba(45, 55, 72, 0.85) 100%);
+            background: linear-gradient(135deg,
+                    rgba(38, 47, 65, 0.7) 0%,
+                    rgba(45, 55, 72, 0.85) 100%);
         }
 
         .intro-disclaimer p {
             font-size: 1.1em;
-            color: var(--text-secondary);
+            color: var(--text-primary);
             line-height: 1.6;
             margin: 0;
             transition: color 0.3s ease;
@@ -432,7 +436,7 @@
             padding: 30px;
             margin-bottom: 30px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             border: 2px solid var(--border-color);
             transition: background 0.3s ease, border-color 0.3s ease;
         }
@@ -443,7 +447,7 @@
             border-radius: 50%;
             object-fit: cover;
             border: 4px solid white;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             margin-bottom: 20px;
             transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
         }
@@ -479,17 +483,18 @@
             border-radius: 15px;
             padding: 25px;
             margin-bottom: 20px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             border: 3px solid rgba(226, 232, 240, 0.5);
             transition: background 0.3s ease, border-color 0.3s ease;
+            position: relative;
         }
 
         .question-block:hover {
             border-color: #bacdff;
-            background: linear-gradient(135deg, 
-                rgba(255, 255, 255, 0.6) 0%, 
-                rgba(248, 250, 252, 0.8) 50%, 
-                rgba(241, 245, 249, 0.9) 100%);
+            background: linear-gradient(135deg,
+                    rgba(255, 255, 255, 0.6) 0%,
+                    rgba(248, 250, 252, 0.8) 50%,
+                    rgba(241, 245, 249, 0.9) 100%);
         }
 
         [data-theme="dark"] .question-block {
@@ -498,10 +503,10 @@
         }
 
         [data-theme="dark"] .question-block:hover {
-            background: linear-gradient(135deg, 
-                rgba(50, 61, 83, 0.6) 0%, 
-                rgba(45, 55, 72, 0.8) 50%, 
-                rgba(26, 32, 44, 0.9) 100%);
+            background: linear-gradient(135deg,
+                    rgba(50, 61, 83, 0.6) 0%,
+                    rgba(45, 55, 72, 0.8) 50%,
+                    rgba(26, 32, 44, 0.9) 100%);
             border-color: rgba(96, 121, 165, 0.5);
         }
 
@@ -509,6 +514,21 @@
             display: flex;
             align-items: flex-start;
             margin-bottom: 20px;
+        }
+
+        .question-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-gradient-start) 0%, var(--primary-gradient-end) 100%);
+            color: white;
+            font-weight: 700;
+            font-size: 1.1em;
+            margin-right: 15px;
+            flex-shrink: 0;
         }
 
         .question-text {
@@ -521,23 +541,24 @@
         }
 
         .help-icon {
-            background: #abffee;
-            color: #2a9290;
+            background: #abb3ff;
+            color: #3b33a1;
             border: none;
             width: 30px;
             height: 30px;
             border-radius: 50%;
-            font-size: 1.2em;
-            font-weight: bold;
             cursor: pointer;
             margin-left: 10px;
             position: relative;
             flex-shrink: 0;
-            font-family: 'Martel Sans', sans-serif;
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .help-icon:hover {
-            background: #b2f5ea;
+            background: #b1b9ff;
         }
 
         .help-tooltip {
@@ -550,10 +571,10 @@
             padding: 15px;
             border-radius: 10px;
             width: 280px;
-            font-size: 0.9em;
+            font-size: 1.2em;
             line-height: 1.5;
             z-index: 100;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             font-weight: 400;
         }
 
@@ -577,19 +598,109 @@
             cursor: pointer;
             transition: all 0.3s ease;
             color: var(--text-secondary);
-            font-family: 'Martel Sans', sans-serif;
+            font-family: 'Montserrat', sans-serif;
         }
 
         .answer-btn:hover {
-            border-color: var(--accent-color);
-            background: var(--card-bg);
             transform: translateY(-2px);
+            background: var(--card-bg);
         }
 
-        .answer-btn.selected {
-            background: linear-gradient(135deg, var(--primary-gradient-start) 0%, var(--primary-gradient-end) 100%);
-            color: white;
-            border-color: var(--accent-color);
+        .answer-btn[data-option="Siempre"]:hover {
+            border-color: #48bb78;
+            color: #48bb78;
+        }
+
+        .answer-btn[data-option="Casi siempre"]:hover {
+            border-color: #4299e1;
+            color: #4299e1;
+        }
+
+        .answer-btn[data-option="Casi nunca"]:hover {
+            border-color: #ed8936;
+            color: #ed8936;
+        }
+
+        .answer-btn[data-option="Nunca"]:hover {
+            border-color: #e53e3e;
+            color: #e53e3e;
+        }
+
+        [data-theme="dark"] .answer-btn:hover {
+            background: var(--card-bg);
+        }
+
+        .answer-btn.selected[data-option="Siempre"] {
+            background: rgba(72, 187, 120, 0.15);
+            border-color: #48bb78;
+            color: #276749;
+            box-shadow: 0 4px 15px rgba(72, 187, 120, 0.2);
+        }
+
+        [data-theme="dark"] .answer-btn.selected[data-option="Siempre"] {
+            color: #68d391;
+        }
+
+        .answer-btn.selected[data-option="Casi siempre"] {
+            background: rgba(66, 153, 225, 0.15);
+            border-color: #4299e1;
+            color: #2b6cb0;
+            box-shadow: 0 4px 15px rgba(66, 153, 225, 0.2);
+        }
+
+        [data-theme="dark"] .answer-btn.selected[data-option="Casi siempre"] {
+            color: #90cdf4;
+        }
+
+        .answer-btn.selected[data-option="Casi nunca"] {
+            background: rgba(237, 137, 54, 0.15);
+            border-color: #ed8936;
+            color: #c05621;
+            box-shadow: 0 4px 15px rgba(237, 137, 54, 0.2);
+        }
+
+        [data-theme="dark"] .answer-btn.selected[data-option="Casi nunca"] {
+            color: #fbd38d;
+        }
+
+        .answer-btn.selected[data-option="Nunca"] {
+            background: rgba(245, 101, 101, 0.15);
+            border-color: #fc8181;
+            color: #c53030;
+            box-shadow: 0 4px 15px rgba(245, 101, 101, 0.2);
+        }
+
+        [data-theme="dark"] .answer-btn.selected[data-option="Nunca"] {
+            color: #feb2b2;
+        }
+
+        .question-completed-check {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 32px;
+            height: 32px;
+            background: #48bb78;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(72, 187, 120, 0.5);
+            opacity: 0;
+            transform: scale(0);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 10;
+        }
+
+        .question-completed-check.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .question-completed-check svg {
+            width: 18px;
+            height: 18px;
+            fill: white;
         }
 
         .nav-buttons {
@@ -625,23 +736,23 @@
 
         /* Comments Section */
         .comments-section {
-            background: linear-gradient(135deg, 
-                rgba(255, 255, 255, 0.6) 0%, 
-                rgba(248, 250, 252, 0.8) 50%, 
-                rgba(241, 245, 249, 0.9) 100%);
+            background: linear-gradient(135deg,
+                    rgba(255, 255, 255, 0.6) 0%,
+                    rgba(248, 250, 252, 0.8) 50%,
+                    rgba(241, 245, 249, 0.9) 100%);
             border-radius: 15px;
             padding: 25px;
             margin-bottom: 20px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             border: 1px solid rgba(226, 232, 240, 0.5);
             transition: background 0.3s ease, border-color 0.3s ease;
         }
 
         [data-theme="dark"] .comments-section {
-            background: linear-gradient(135deg, 
-                rgba(26, 32, 44, 0.6) 0%, 
-                rgba(45, 55, 72, 0.8) 50%, 
-                rgba(26, 32, 44, 0.9) 100%);
+            background: linear-gradient(135deg,
+                    rgba(26, 32, 44, 0.6) 0%,
+                    rgba(45, 55, 72, 0.8) 50%,
+                    rgba(26, 32, 44, 0.9) 100%);
             border-color: rgba(45, 55, 72, 0.5);
         }
 
@@ -660,7 +771,7 @@
             padding: 15px;
             border: 2px solid var(--border-color);
             border-radius: 10px;
-            font-family: 'Martel Sans', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             font-size: 1em;
             resize: vertical;
             transition: border-color 0.3s ease, background 0.3s ease, color 0.3s ease;
@@ -780,6 +891,7 @@
             from {
                 transform: scale(0);
             }
+
             to {
                 transform: scale(1);
             }
@@ -808,8 +920,13 @@
         }
 
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         /* Custom Alert Modal */
@@ -836,6 +953,7 @@
             from {
                 opacity: 0;
             }
+
             to {
                 opacity: 1;
             }
@@ -859,6 +977,7 @@
                 transform: translateY(30px);
                 opacity: 0;
             }
+
             to {
                 transform: translateY(0);
                 opacity: 1;
@@ -939,7 +1058,7 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 20px var(--shadow-color);
         }
-        
+
         /* Custom Scrollbar Styling */
         /* Webkit browsers (Chrome, Safari, Edge) */
         ::-webkit-scrollbar {
@@ -947,62 +1066,62 @@
         }
 
         ::-webkit-scrollbar-track {
-            background: linear-gradient(to right, 
-                rgba(226, 232, 240, 0.2) 0%, 
-                rgba(226, 232, 240, 0.3) 100%);
+            background: linear-gradient(to right,
+                    rgba(226, 232, 240, 0.2) 0%,
+                    rgba(226, 232, 240, 0.3) 100%);
             backdrop-filter: blur(10px);
             border-left: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, 
-                #FF6B8A 0%, 
-                #6B8CFF 100%);
+            background: linear-gradient(180deg,
+                    #FF6B8A 0%,
+                    #6B8CFF 100%);
             border-radius: 10px;
             border: 3px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(180deg, 
-                #ff8aa5 0%, 
-                #8ba5ff 100%);
+            background: linear-gradient(180deg,
+                    #ff8aa5 0%,
+                    #8ba5ff 100%);
             border-color: rgba(255, 255, 255, 0.3);
         }
 
         ::-webkit-scrollbar-thumb:active {
-            background: linear-gradient(180deg, 
-                #ff5577 0%, 
-                #5577ff 100%);
+            background: linear-gradient(180deg,
+                    #ff5577 0%,
+                    #5577ff 100%);
         }
 
         /* Dark mode scrollbar */
         [data-theme="dark"] ::-webkit-scrollbar-track {
-            background: linear-gradient(to right, 
-                rgba(45, 55, 72, 0.3) 0%, 
-                rgba(26, 32, 44, 0.4) 100%);
+            background: linear-gradient(to right,
+                    rgba(45, 55, 72, 0.3) 0%,
+                    rgba(26, 32, 44, 0.4) 100%);
             border-left: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         [data-theme="dark"] ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, 
-                #C8102E 0%, 
-                #012169 100%);
+            background: linear-gradient(180deg,
+                    #C8102E 0%,
+                    #012169 100%);
             border: 3px solid rgba(255, 255, 255, 0.08);
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
         }
 
         [data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(180deg, 
-                #e11337 0%, 
-                #0a2d7a 100%);
+            background: linear-gradient(180deg,
+                    #e11337 0%,
+                    #0a2d7a 100%);
             border-color: rgba(255, 255, 255, 0.2);
         }
 
         [data-theme="dark"] ::-webkit-scrollbar-thumb:active {
-            background: linear-gradient(180deg, 
-                #a00d24 0%, 
-                #011752 100%);
+            background: linear-gradient(180deg,
+                    #a00d24 0%,
+                    #011752 100%);
         }
 
         /* Firefox scrollbar */
@@ -1019,7 +1138,7 @@
             .container {
                 border-radius: 20px;
             }
-            
+
             .header h1 {
                 font-size: 1.5em;
             }
@@ -1038,11 +1157,11 @@
                 right: 15px;
                 border-width: 2px;
             }
-            
+
             .content {
                 padding: 20px;
             }
-            
+
             .group-btn {
                 padding: 15px 30px;
                 font-size: 1.2em;
@@ -1052,7 +1171,7 @@
                 font-size: 1.2em;
                 padding: 15px;
             }
-            
+
             .teacher-photo {
                 width: 100px;
                 height: 100px;
@@ -1087,7 +1206,7 @@
                 font-size: 1.1em;
                 padding: 10px 22px;
             }
-        
+
             .scroll-nav-btn {
                 width: 50px;
                 height: 50px;
@@ -1102,6 +1221,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Background Images with Overlay -->
     <div class="bg-container">
@@ -1118,7 +1238,9 @@
         <div class="alert-modal" onclick="event.stopPropagation()">
             <div class="alert-icon warning" id="alertIcon">
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M22.25,17.55,14.63,3.71a3,3,0,0,0-5.26,0L1.75,17.55A3,3,0,0,0,4.38,22H19.62a3,3,0,0,0,2.63-4.45ZM12,18a1,1,0,1,1,1-1A1,1,0,0,1,12,18Zm1-5a1,1,0,0,1-2,0V9a1,1,0,0,1,2,0Z"></path>
+                    <path
+                        d="M22.25,17.55,14.63,3.71a3,3,0,0,0-5.26,0L1.75,17.55A3,3,0,0,0,4.38,22H19.62a3,3,0,0,0,2.63-4.45ZM12,18a1,1,0,1,1,1-1A1,1,0,0,1,12,18Zm1-5a1,1,0,0,1-2,0V9a1,1,0,0,1,2,0Z">
+                    </path>
                 </svg>
             </div>
             <div class="alert-title" id="alertTitle">Atención</div>
@@ -1126,34 +1248,44 @@
             <button class="alert-button" onclick="closeAlert()">OK</button>
         </div>
     </div>
-        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
-            <svg class="theme-icon sun-icon active" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M7 3V0H9V3H7Z" fill="#000000"></path>
-                <path d="M9 13V16H7V13H9Z" fill="#000000"></path>
-                <path d="M11 8C11 9.65685 9.65685 11 8 11C6.34315 11 5 9.65685 5 8C5 6.34315 6.34315 5 8 5C9.65685 5 11 6.34315 11 8Z" fill="#000000"></path>
-                <path d="M0 9H3V7H0V9Z" fill="#000000"></path>
-                <path d="M16 7H13V9H16V7Z" fill="#000000"></path>
-                <path d="M3.75735 5.17157L1.63603 3.05025L3.05025 1.63603L5.17157 3.75735L3.75735 5.17157Z" fill="#000000"></path>
-                <path d="M12.2426 10.8284L14.364 12.9497L12.9497 14.364L10.8284 12.2426L12.2426 10.8284Z" fill="#000000"></path>
-                <path d="M3.05025 14.364L5.17157 12.2426L3.75735 10.8284L1.63603 12.9498L3.05025 14.364Z" fill="#000000"></path>
-                <path d="M12.9497 1.63604L10.8284 3.75736L12.2426 5.17158L14.364 3.05026L12.9497 1.63604Z" fill="#000000"></path>
-            </svg>
-            <svg class="theme-icon moon-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 8.00002C0 4.75562 1.93132 1.9623 4.70701 0.707031L5.65436 1.65438C5.2352 2.51383 5 3.47946 5 4.50002C5 8.08987 7.91015 11 11.5 11C12.5206 11 13.4862 10.7648 14.3456 10.3457L15.293 11.293C14.0377 14.0687 11.2444 16 8 16C3.58172 16 0 12.4183 0 8.00002Z" fill="#000000"></path>
-                <path d="M11.5 7.00003L9 4.50003L11.5 2.00003L14 4.50003L11.5 7.00003Z" fill="#000000"></path>
-            </svg>
-        </button>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="theme-icon sun-icon active" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 3V0H9V3H7Z" fill="#000000"></path>
+            <path d="M9 13V16H7V13H9Z" fill="#000000"></path>
+            <path
+                d="M11 8C11 9.65685 9.65685 11 8 11C6.34315 11 5 9.65685 5 8C5 6.34315 6.34315 5 8 5C9.65685 5 11 6.34315 11 8Z"
+                fill="#000000"></path>
+            <path d="M0 9H3V7H0V9Z" fill="#000000"></path>
+            <path d="M16 7H13V9H16V7Z" fill="#000000"></path>
+            <path d="M3.75735 5.17157L1.63603 3.05025L3.05025 1.63603L5.17157 3.75735L3.75735 5.17157Z" fill="#000000">
+            </path>
+            <path d="M12.2426 10.8284L14.364 12.9497L12.9497 14.364L10.8284 12.2426L12.2426 10.8284Z" fill="#000000">
+            </path>
+            <path d="M3.05025 14.364L5.17157 12.2426L3.75735 10.8284L1.63603 12.9498L3.05025 14.364Z" fill="#000000">
+            </path>
+            <path d="M12.9497 1.63604L10.8284 3.75736L12.2426 5.17158L14.364 3.05026L12.9497 1.63604Z" fill="#000000">
+            </path>
+        </svg>
+        <svg class="theme-icon moon-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M0 8.00002C0 4.75562 1.93132 1.9623 4.70701 0.707031L5.65436 1.65438C5.2352 2.51383 5 3.47946 5 4.50002C5 8.08987 7.91015 11 11.5 11C12.5206 11 13.4862 10.7648 14.3456 10.3457L15.293 11.293C14.0377 14.0687 11.2444 16 8 16C3.58172 16 0 12.4183 0 8.00002Z"
+                fill="#000000"></path>
+            <path d="M11.5 7.00003L9 4.50003L11.5 2.00003L14 4.50003L11.5 7.00003Z" fill="#000000"></path>
+        </svg>
+    </button>
 
-        <!-- Scroll Navigation Button -->
-        <button class="scroll-nav-btn" id="scrollNavBtn" onclick="toggleScroll()" aria-label="Scroll navigation">
-            <svg id="scrollIcon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M18.2929 15.2893C18.6834 14.8988 18.6834 14.2656 18.2929 13.8751L13.4007 8.98766C12.6195 8.20726 11.3537 8.20757 10.5729 8.98835L5.68257 13.8787C5.29205 14.2692 5.29205 14.9024 5.68257 15.2929C6.0731 15.6835 6.70626 15.6835 7.09679 15.2929L11.2824 11.1073C11.673 10.7168 12.3061 10.7168 12.6966 11.1073L16.8787 15.2893C17.2692 15.6798 17.9024 15.6798 18.2929 15.2893Z" fill="white"></path>
-            </svg>
-        </button>
-    
+    <!-- Scroll Navigation Button -->
+    <button class="scroll-nav-btn" id="scrollNavBtn" onclick="toggleScroll()" aria-label="Scroll navigation">
+        <svg id="scrollIcon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M18.2929 15.2893C18.6834 14.8988 18.6834 14.2656 18.2929 13.8751L13.4007 8.98766C12.6195 8.20726 11.3537 8.20757 10.5729 8.98835L5.68257 13.8787C5.29205 14.2692 5.29205 14.9024 5.68257 15.2929C6.0731 15.6835 6.70626 15.6835 7.09679 15.2929L11.2824 11.1073C11.673 10.7168 12.3061 10.7168 12.6966 11.1073L16.8787 15.2893C17.2692 15.6798 17.9024 15.6798 18.2929 15.2893Z"
+                fill="white"></path>
+        </svg>
+    </button>
+
     <div class="container">
         <div class="header">
-            <h1>📚 Evaluación de Desempeño Docente</h1>
+            <h1>Evaluación de Desempeño Docente</h1>
             <p>I Semestre 2026 - Primaria</p>
         </div>
 
@@ -1161,10 +1293,12 @@
             <!-- Phase 1: Group Selection -->
             <div class="group-selection" id="groupSelection">
                 <div class="intro-disclaimer">
-                    <p>Gracias por participar en esta evaluación. Tu opinión es importante para mejorar la calidad educativa de nuestra institución. Por favor, responde cada pregunta con honestidad y responsabilidad. Recuerda que tus respuestas son confidenciales.</p>
+                    <p>Gracias por participar en esta evaluación. Tu opinión es importante para mejorar la calidad
+                        educativa de nuestra institución. Por favor, responde cada pregunta con honestidad y
+                        responsabilidad. Recuerda que tus respuestas son confidenciales.</p>
                 </div>
                 <h2>Selecciona tu grupo</h2>
-                
+
                 <div class="grade-section">
                     <div class="grade-container">
                         <div class="grade-title">Primero</div>
@@ -1244,10 +1378,9 @@
                 <div id="questionsContainer"></div>
 
                 <div class="comments-section">
-                    <label class="comments-label">Comentarios, Observaciones o Felicitaciones para el(la) docente:</label>
-                    <textarea 
-                        class="comments-textarea" 
-                        id="teacherComments"
+                    <label class="comments-label">Comentarios, Observaciones o Felicitaciones para el(la)
+                        docente:</label>
+                    <textarea class="comments-textarea" id="teacherComments"
                         placeholder="Escribe aquí tus comentarios (opcional)..."></textarea>
                 </div>
 
@@ -1261,7 +1394,9 @@
             <div class="thank-you" id="thankYou">
                 <div class="checkmark">
                     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm4.71,8.71-5,5a1,1,0,0,1-1.42,0l-3-3a1,1,0,1,1,1.42-1.42L11,13.59l4.29-4.3a1,1,0,0,1,1.42,1.42Z"></path>
+                        <path
+                            d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm4.71,8.71-5,5a1,1,0,0,1-1.42,0l-3-3a1,1,0,1,1,1.42-1.42L11,13.59l4.29-4.3a1,1,0,0,1,1.42,1.42Z">
+                        </path>
                     </svg>
                 </div>
                 <h2>¡Muchas gracias!</h2>
@@ -1732,17 +1867,12 @@
             "Ethics",
             "Technology"
         ];
-        
+
         const questions = [
             {
-                questionText: "¿El docente es creativo y realiza clases agradables?",
-                helpText_Level1: "¿Tu profesor hace cosas divertidas y diferentes en clase? ¿Te gusta cómo enseña?",
-                helpText_Level2: "¿El profesor usa actividades variadas, juegos o ejemplos creativos que hacen las clases más interesantes y entretenidas?"
-            },
-            {
-                questionText: "¿El docente realiza actividades que permiten comprender el tema fácilmente?",
-                helpText_Level1: "¿Entiendes bien lo que tu profesor enseña? ¿Te ayuda a aprender de forma fácil?",
-                helpText_Level2: "¿El profesor explica los temas de manera clara y usa ejercicios o ejemplos que te ayudan a entender mejor los conceptos?"
+                questionText: "¿Las clases del profesor son chéveres, divertidas, interesantes, y que facilitan mi aprendizaje?",
+                helpText_Level1: "¿El profesor trae ideas y actividades diferentes en cada clase o hace siempre lo mismo en el tablero?",
+                helpText_Level2: "¿El profesor trae ideas y actividades diferentes en cada clase o hace siempre lo mismo en el tablero?"
             },
             {
                 questionText: "¿El docente permite realizar actividades de grupo en la clase?",
@@ -1751,8 +1881,8 @@
             },
             {
                 questionText: "¿El docente exige el buen comportamiento para desarrollar la clase?",
-                helpText_Level1: "¿Tu profesor pide que te portes bien en clase? ¿Te dice cuándo debes estar quieto y atento?",
-                helpText_Level2: "¿El docente establece normas claras de comportamiento y las hace cumplir para mantener un ambiente de aprendizaje adecuado?"
+                helpText_Level1: "¿El profesor exige silencio y que estén atentos?",
+                helpText_Level2: "¿El profesor exige silencio y que estén atentos?"
             },
             {
                 questionText: "¿La clase del docente se desarrolla con respeto y disciplina?",
@@ -1760,19 +1890,14 @@
                 helpText_Level2: "¿Las clases transcurren en un ambiente de respeto mutuo, donde hay disciplina y orden para aprender?"
             },
             {
-                questionText: "¿Durante la clase el proceso de evaluación es constante y permanente?",
-                helpText_Level1: "¿Tu profesor revisa tu trabajo seguido? ¿Te dice si lo estás haciendo bien?",
-                helpText_Level2: "¿El docente evalúa tu progreso regularmente durante las clases, no solo en exámenes, sino también en actividades diarias?"
+                questionText: "¿El docente permite o me motiva permanente a que yo participe en clase?",
+                helpText_Level1: "¿El profesor te anima a hablar y participar durante la clase?",
+                helpText_Level2: "¿El docente te motiva a participar constantemente en clase?"
             },
             {
-                questionText: "¿El docente evalúa nuevamente, si los resultados del grupo no son satisfactorios?",
-                helpText_Level1: "Si muchos no entendieron algo, ¿el profesor vuelve a explicar y hace otra prueba?",
-                helpText_Level2: "¿Cuando la mayoría del grupo no alcanza buenos resultados, el docente da oportunidades de recuperación y vuelve a evaluar?"
-            },
-            {
-                questionText: "¿El docente escucha y da solución a las dudas frente a los aprendizajes?",
-                helpText_Level1: "¿Cuando no entiendes algo, tu profesor te ayuda? ¿Te explica hasta que entiendas?",
-                helpText_Level2: "¿El docente atiende tus preguntas sobre los temas y se asegura de resolver todas tus dudas académicas?"
+                questionText: "¿El profesor aclara dudas cuando lo solicitas?",
+                helpText_Level1: "¿El docente me escucha, me atiende la necesidades que puedo tener durante la clase? (por ejemplo necesidades de aprendizaje cuando tengo dudas del tema o emocionales, cuando no me siento bien).",
+                helpText_Level2: "¿El docente me escucha, me atiende la necesidades que puedo tener durante la clase? (por ejemplo necesidades de aprendizaje cuando tengo dudas del tema o emocionales, cuando no me siento bien)."
             },
             {
                 questionText: "¿El docente es puntual en la llegada a clase?",
@@ -1785,7 +1910,7 @@
                 helpText_Level2: "¿El docente te escucha atentamente y responde tus inquietudes con respeto, sin importar qué tipo de pregunta hagas?"
             },
             {
-                questionText: "¿El docente es cordial y amable cuando se le hacen preguntas en general?",
+                questionText: "¿El docente responde tus preguntas con respeto y de manera oportuna?",
                 helpText_Level1: "¿Tu profesor es amable y sonríe cuando le preguntas cosas? ¿Es buena persona?",
                 helpText_Level2: "¿El docente mantiene una actitud amigable y cordial al responder preguntas, creando un ambiente acogedor?"
             }
@@ -1804,14 +1929,14 @@
             const icon = document.getElementById('alertIcon');
             const titleEl = document.getElementById('alertTitle');
             const messageEl = document.getElementById('alertMessage');
-            
+
             // Set content
             titleEl.textContent = title;
             messageEl.textContent = message;
-            
+
             // Set icon based on type
             icon.className = `alert-icon ${type}`;
-            
+
             if (type === 'warning') {
                 icon.innerHTML = `
                     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -1831,7 +1956,7 @@
                     </svg>
                 `;
             }
-            
+
             // Show modal
             overlay.classList.add('active');
             document.body.style.overflow = 'hidden';
@@ -1857,10 +1982,10 @@
             const html = document.documentElement;
             const currentTheme = html.getAttribute('data-theme');
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
+
             html.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
-            
+
             document.querySelector('.sun-icon').classList.toggle('active');
             document.querySelector('.moon-icon').classList.toggle('active');
         }
@@ -1868,7 +1993,7 @@
         window.addEventListener('DOMContentLoaded', () => {
             const savedTheme = localStorage.getItem('theme') || 'light';
             document.documentElement.setAttribute('data-theme', savedTheme);
-            
+
             if (savedTheme === 'dark') {
                 document.querySelector('.sun-icon').classList.remove('active');
                 document.querySelector('.moon-icon').classList.add('active');
@@ -1880,14 +2005,14 @@
 
         function initParallax() {
             let ticking = false;
-            
+
             window.addEventListener('scroll', () => {
                 if (!ticking) {
                     window.requestAnimationFrame(() => {
                         // Only apply parallax if NOT on group selection screen
                         const groupSelection = document.getElementById('groupSelection');
                         const isGroupSelectionVisible = groupSelection && window.getComputedStyle(groupSelection).display !== 'none';
-                        
+
                         if (isGroupSelectionVisible) {
                             // Reset parallax when on group selection
                             const parallaxElements = document.querySelectorAll('.bg-image');
@@ -1900,22 +2025,22 @@
                             const windowHeight = window.innerHeight;
                             const documentHeight = document.documentElement.scrollHeight;
                             const maxScroll = documentHeight - windowHeight;
-                            
+
                             const scrollPercent = maxScroll > 0 ? scrolled / maxScroll : 0;
-                            
+
                             const parallaxElements = document.querySelectorAll('.bg-image');
-                            
+
                             parallaxElements.forEach(el => {
                                 const maxTranslate = 16;
                                 const translateY = -(scrollPercent * maxTranslate);
-                                
+
                                 el.style.transform = `translateY(${translateY}%)`;
                             });
                         }
-                        
+
                         ticking = false;
                     });
-                    
+
                     ticking = true;
                 }
             });
@@ -1935,7 +2060,7 @@
         function selectGroup(group, grade) {
             selectedGroup = group;
             gradeLevel = grade;
-            
+
             // Filter teachers for the selected group and get their specific subjects
             filteredTeachers = teachers
                 .filter(teacher => teacher.groups.includes(group))
@@ -1946,28 +2071,28 @@
                 }))
                 .sort((a, b) => {
                     // Sort by the first subject's order
-                    const aOrder = a.subjects.length > 0 ? 
+                    const aOrder = a.subjects.length > 0 ?
                         subjectOrder.findIndex(order => a.subjects[0].includes(order) || order.includes(a.subjects[0])) : 999;
-                    const bOrder = b.subjects.length > 0 ? 
+                    const bOrder = b.subjects.length > 0 ?
                         subjectOrder.findIndex(order => b.subjects[0].includes(order) || order.includes(b.subjects[0])) : 999;
                     return (aOrder === -1 ? 999 : aOrder) - (bOrder === -1 ? 999 : bOrder);
                 });
-            
+
             if (filteredTeachers.length === 0) {
                 showAlert('No hay profesores asignados a este grupo.', 'Grupo sin profesores', 'info');
                 return;
             }
-            
+
             responses = filteredTeachers.map(teacher => ({
                 teacher: teacher.name,
                 subjects: teacher.subjects.join(' • '),
                 answers: new Array(questions.length).fill(null),
                 comments: ''
             }));
-            
+
             document.getElementById('groupSelection').style.display = 'none';
             document.getElementById('surveyContainer').style.display = 'block';
-            
+
             // Update group badge
             const gradeNames = {
                 1: 'Primero',
@@ -1987,49 +2112,57 @@
 
         function loadTeacher() {
             const teacher = filteredTeachers[currentTeacherIndex];
-            
+
             const progress = ((currentTeacherIndex + 1) / filteredTeachers.length) * 100;
             document.getElementById('progressBar').style.width = progress + '%';
-            document.getElementById('progressText').textContent = 
+            document.getElementById('progressText').textContent =
                 `Profesor ${currentTeacherIndex + 1} de ${filteredTeachers.length}`;
-            
+
             document.getElementById('teacherPhoto').src = `assets/teachers/${teacher.imageFile}`;
             document.getElementById('teacherPhoto').alt = teacher.name;
             document.getElementById('teacherName').textContent = teacher.name;
             document.getElementById('teacherSubject').textContent = teacher.subjects.join(' • ');
-            
+
             loadQuestions();
-            
+
             document.getElementById('teacherComments').value = responses[currentTeacherIndex].comments;
-            
+
             document.getElementById('prevBtn').disabled = false;
-            document.getElementById('prevBtn').textContent = 
+            document.getElementById('prevBtn').textContent =
                 currentTeacherIndex === 0 ? '← Cambiar grupo' : '← Anterior';
-            document.getElementById('nextBtn').textContent = 
+            document.getElementById('nextBtn').textContent =
                 currentTeacherIndex === filteredTeachers.length - 1 ? 'Finalizar ✓' : 'Siguiente →';
         }
 
         function loadQuestions() {
             const container = document.getElementById('questionsContainer');
             container.innerHTML = '';
-            
+
             const currentResponses = responses[currentTeacherIndex].answers;
-            
+
             questions.forEach((q, index) => {
                 const helpText = gradeLevel <= 2 ? q.helpText_Level1 : q.helpText_Level2;
-                
+                const isAnswered = currentResponses[index] !== null;
+
                 const questionBlock = document.createElement('div');
                 questionBlock.className = 'question-block';
+                questionBlock.id = `question-block-${index}`;
                 questionBlock.innerHTML = `
+                    <div class="question-completed-check ${isAnswered ? 'visible' : ''}" id="check-${index}">
+                        <svg viewBox="0 0 24 24"><path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm4.71,8.71-5,5a1,1,0,0,1-1.42,0l-3-3a1,1,0,1,1,1.42-1.42L11,13.59l4.29-4.3a1,1,0,0,1,1.42,1.42Z"/></svg>
+                    </div>
                     <div class="question-header">
-                        <div class="question-text">${index + 1}. ${q.questionText}</div>
-                        <button class="help-icon">?
+                        <div class="question-number">${index + 1}</div>
+                        <div class="question-text">${q.questionText}</div>
+                        <button class="help-icon">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2A10 10 0 1 0 22 12A10 10 0 0 0 12 2Zm1 15h-2v-6h2v6Zm0-8h-2V7h2v2Z"/></svg>
                             <div class="help-tooltip">${helpText}</div>
                         </button>
                     </div>
                     <div class="answer-options" id="answers-${index}">
                         ${answerOptions.map((option, optIndex) => `
                             <button class="answer-btn ${currentResponses[index] === option ? 'selected' : ''}" 
+                                    data-option="${option}"
                                     onclick="selectAnswer(${index}, '${option}')">
                                 ${option}
                             </button>
@@ -2042,7 +2175,7 @@
 
         function selectAnswer(questionIndex, answer) {
             responses[currentTeacherIndex].answers[questionIndex] = answer;
-            
+
             const buttons = document.querySelectorAll(`#answers-${questionIndex} .answer-btn`);
             buttons.forEach(btn => {
                 if (btn.textContent.trim() === answer) {
@@ -2051,6 +2184,11 @@
                     btn.classList.remove('selected');
                 }
             });
+
+            const check = document.getElementById(`check-${questionIndex}`);
+            if (check) {
+                check.classList.add('visible');
+            }
         }
 
         function validateCurrentTeacher() {
@@ -2063,9 +2201,9 @@
                 showAlert('Por favor responde todas las preguntas antes de continuar.', 'Preguntas incompletas', 'warning');
                 return;
             }
-            
+
             responses[currentTeacherIndex].comments = document.getElementById('teacherComments').value.trim();
-            
+
             if (currentTeacherIndex === filteredTeachers.length - 1) {
                 submitSurvey();
             } else {
@@ -2078,7 +2216,7 @@
         function previousTeacher() {
             if (currentTeacherIndex > 0) {
                 responses[currentTeacherIndex].comments = document.getElementById('teacherComments').value.trim();
-                
+
                 currentTeacherIndex--;
                 loadTeacher();
                 window.scrollTo(0, 0);
@@ -2093,19 +2231,19 @@
             filteredTeachers = [];
             currentTeacherIndex = 0;
             responses = [];
-            
+
             document.getElementById('surveyContainer').style.display = 'none';
             document.getElementById('groupSelection').style.display = 'block';
-            
+
             // Hide scroll navigation button
             document.getElementById('scrollNavBtn').classList.remove('visible');
-            
+
             window.scrollTo(0, 0);
         }
 
         function toggleScroll() {
             const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
-            
+
             // If we're near the top (within 200px), scroll to bottom
             if (scrollPosition < 200) {
                 window.scrollTo({
@@ -2125,11 +2263,11 @@
         window.addEventListener('scroll', () => {
             const scrollBtn = document.getElementById('scrollNavBtn');
             const scrollIcon = document.getElementById('scrollIcon');
-            
+
             if (!scrollBtn || !scrollBtn.classList.contains('visible')) return;
-            
+
             const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
-            
+
             // Change icon based on scroll position
             if (scrollPosition < 200) {
                 // Show down arrow
@@ -2143,14 +2281,14 @@
         async function submitSurvey() {
             document.getElementById('surveyContainer').style.display = 'none';
             document.getElementById('loading').style.display = 'block';
-            
+
             try {
                 const payload = {
                     timestamp: new Date().toISOString(),
                     group: selectedGroup,
                     responses: responses
                 };
-                
+
                 const response = await fetch(SCRIPT_URL, {
                     method: 'POST',
                     mode: 'no-cors',
@@ -2159,12 +2297,12 @@
                     },
                     body: JSON.stringify(payload)
                 });
-                
+
                 setTimeout(() => {
                     document.getElementById('loading').style.display = 'none';
                     document.getElementById('thankYou').style.display = 'block';
                 }, 1500);
-                
+
             } catch (error) {
                 console.error('Error:', error);
                 showAlert('Hubo un error al enviar tu evaluación. Por favor intenta de nuevo.', 'Error de envío', 'error');
@@ -2175,20 +2313,21 @@
 
         function restartSurvey() {
             document.getElementById('thankYou').style.display = 'none';
-            
+
             selectedGroup = '';
             gradeLevel = 1;
             filteredTeachers = [];
             currentTeacherIndex = 0;
             responses = [];
-            
+
             document.getElementById('groupSelection').style.display = 'block';
-            
+
             // Hide scroll navigation button
             document.getElementById('scrollNavBtn').classList.remove('visible');
-            
+
             window.scrollTo(0, 0);
         }
     </script>
 </body>
+
 </html>
