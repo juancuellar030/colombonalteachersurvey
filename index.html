@@ -143,7 +143,7 @@
 
         .container {
             width: 100%;
-            max-width: 900px;
+            max-width: 1050px;
             background: var(--card-bg);
             border-radius: 30px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
@@ -253,9 +253,9 @@
 
         /* Intro Disclaimer */
         .intro-disclaimer {
-            background: linear-gradient(135deg,
-                    rgba(255, 250, 250, 0.8) 0%,
-                    rgba(248, 252, 255, 0.9) 100%);
+            background: rgba(192, 228, 255, 0.3);
+            border-style: solid;
+            border-color: #9690e4;
             border-radius: 15px;
             padding: 25px 30px;
             margin-bottom: 35px;
@@ -290,90 +290,143 @@
             transition: color 0.3s ease;
         }
 
-        .grade-section {
+        .grades-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-top: 30px;
             margin-bottom: 30px;
-            position: relative;
         }
 
-        .grade-container {
-            background: linear-gradient(135deg, var(--primary-gradient-start) 0%, var(--primary-gradient-end) 100%);
-            border-radius: 15px;
-            box-shadow: 0 4px 15px var(--shadow-color);
-            transition: all 0.5s ease;
+        .grade-card {
+            border-radius: 30px;
+            width: 160px;
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             cursor: pointer;
+            position: relative;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             overflow: hidden;
         }
 
-        .grade-container:hover {
-            box-shadow: 0 6px 20px var(--shadow-color);
+        .grade-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
         }
 
-        .grade-title {
-            font-size: 1.5em;
-            color: white;
-            margin-bottom: 0;
-            font-weight: 700;
-            padding: 20px;
-            text-align: center;
+        .grade-number {
             font-family: 'Quicksand', sans-serif;
-            position: relative;
+            font-size: 5em;
+            font-weight: 800;
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        .group-grid {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            padding: 0 20px;
-            max-height: 0;
+        .grade-card:hover .grade-number {
             opacity: 0;
-            overflow: visible;
-            transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.5s ease;
+            transform: scale(0.5) translateY(-20px);
         }
 
-        .grade-section:hover .group-grid,
-        .grade-section.active .group-grid {
-            max-height: 200px;
+        .grade-groups {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            opacity: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            pointer-events: none;
+            width: 90%;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .grade-card:hover .grade-groups {
             opacity: 1;
-            padding: 0 20px 20px 20px;
+            transform: translate(-50%, -50%) scale(1);
+            pointer-events: auto;
         }
 
         .group-btn {
             background: rgba(255, 255, 255, 0.95);
-            color: var(--primary-gradient-start);
-            border: 3px solid rgba(255, 255, 255, 0.5);
-            padding: 15px 35px;
-            font-size: 1.4em;
+            color: #2d3748;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            padding: 8px 12px;
+            font-size: 1.1em;
             font-weight: 700;
-            border-radius: 15px;
+            border-radius: 12px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             font-family: 'Quicksand', sans-serif;
-            min-width: 70px;
+            min-width: 45px;
             backdrop-filter: blur(10px);
         }
 
         .group-btn:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+            transform: translateY(-2px) scale(1.1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
             background: white;
             border-color: white;
+            color: var(--accent-color);
         }
 
         .group-btn:active {
-            transform: translateY(-1px) scale(1.02);
+            transform: translateY(0) scale(1.05);
         }
 
-        [data-theme="dark"] .group-btn {
+        /* Container Colors setup */
+        .grade-card[data-grade="1"],
+        .grade-card[data-grade="3"],
+        .grade-card[data-grade="5"] {
+            background: linear-gradient(135deg, #cab3ff 0%, #6B8CFF 100%);
+        }
+
+        .grade-card[data-grade="2"],
+        .grade-card[data-grade="4"] {
+            background: linear-gradient(135deg, #cab3ff 0%, #FF6B8A 100%);
+        }
+
+        /* Set specific text colors based on card background to match button text */
+        .grade-card[data-grade="1"] .group-btn,
+        .grade-card[data-grade="3"] .group-btn,
+        .grade-card[data-grade="5"] .group-btn {
+            color: #4a90e2;
+        }
+
+        .grade-card[data-grade="2"] .group-btn,
+        .grade-card[data-grade="4"] .group-btn {
+            color: #f56565;
+        }
+
+        /* Dark mode enhancements */
+        [data-theme="dark"] .grade-card[data-grade="1"],
+        [data-theme="dark"] .grade-card[data-grade="3"],
+        [data-theme="dark"] .grade-card[data-grade="5"] {
+            background: linear-gradient(135deg, #361363 0%, #012169 100%);
+        }
+
+        [data-theme="dark"] .grade-card[data-grade="2"],
+        [data-theme="dark"] .grade-card[data-grade="4"] {
+            background: linear-gradient(135deg, #361363 0%, #ad0b26 100%);
+        }
+
+        [data-theme="dark"] .grade-card .group-btn {
             background: rgba(26, 32, 44, 0.95);
-            color: white;
+            color: white !important;
             border-color: rgba(255, 255, 255, 0.2);
         }
 
-        [data-theme="dark"] .group-btn:hover {
+        [data-theme="dark"] .grade-card .group-btn:hover {
             background: rgba(45, 55, 72, 0.95);
             border-color: rgba(255, 255, 255, 0.4);
+            color: white !important;
         }
 
         /* Phase 2: Teacher Evaluation */
@@ -418,7 +471,7 @@
         .progress-bar-bg {
             background: var(--progress-bg);
             border-radius: 15px;
-            height: 20px;
+            height: 10px;
             overflow: hidden;
             transition: background 0.3s ease;
         }
@@ -435,7 +488,10 @@
             border-radius: 20px;
             padding: 30px;
             margin-bottom: 30px;
-            text-align: center;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            text-align: left;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             border: 2px solid var(--border-color);
             transition: background 0.3s ease, border-color 0.3s ease;
@@ -448,7 +504,7 @@
             object-fit: cover;
             border: 4px solid white;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            margin-bottom: 20px;
+            flex-shrink: 0;
             transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
         }
 
@@ -458,7 +514,12 @@
         }
 
         .teacher-photo:hover {
-            transform: scale(1.2);
+            transform: scale(1.1);
+        }
+
+        .teacher-info-group {
+            display: flex;
+            flex-direction: column;
         }
 
         .teacher-name {
@@ -477,14 +538,19 @@
             transition: color 0.3s ease;
         }
 
-        /* Questions */
+        /* Single Question Card */
+        .question-card-wrapper {
+            position: relative;
+            min-height: 280px;
+            overflow: hidden;
+        }
+
         .question-block {
             background: var(--card-bg);
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            border: 3px solid rgba(226, 232, 240, 0.5);
+            border-radius: 20px;
+            padding: 35px 30px 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 3px solid rgba(226, 232, 240, 0.6);
             transition: background 0.3s ease, border-color 0.3s ease;
             position: relative;
         }
@@ -500,6 +566,181 @@
         [data-theme="dark"] .question-block {
             background: var(--card-bg);
             border-color: #2d3748;
+        }
+
+        /* Question Transition Animations */
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(60px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideOutLeft {
+            from {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+            to {
+                opacity: 0;
+                transform: translateX(-60px);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-60px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideOutRight {
+            from {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+            to {
+                opacity: 0;
+                transform: translateX(60px);
+            }
+        }
+
+        @keyframes fadeSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-slide-up {
+            animation: fadeSlideUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .teacher-card.anim-out {
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .teacher-card.anim-in {
+            animation: fadeSlideUp 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .question-block.anim-in-right {
+            animation: slideInRight 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .question-block.anim-out-left {
+            animation: slideOutLeft 0.25s ease-in forwards;
+        }
+
+        .question-block.anim-in-left {
+            animation: slideInLeft 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .question-block.anim-out-right {
+            animation: slideOutRight 0.25s ease-in forwards;
+        }
+
+        /* Question progress dots */
+        .question-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .question-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--border-color);
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .question-dot.answered {
+            background: #8ba6ff;
+        }
+
+        .question-dot.current {
+            background: #ff8ba4;
+            transform: scale(1.4);
+        }
+
+        [data-theme="dark"] .question-dot.answered {
+            background: #496bd8;
+        }
+
+        [data-theme="dark"] .question-dot.current {
+            background: #d84949;
+            transform: scale(1.4);
+        }
+
+        /* Per-question nav */
+        .question-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 28px;
+            gap: 12px;
+        }
+
+        .question-nav-btn {
+            background: linear-gradient(135deg, var(--primary-gradient-start) 0%, var(--primary-gradient-end) 100%);
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            font-size: 1em;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Quicksand', sans-serif;
+            box-shadow: 0 4px 15px var(--shadow-color);
+        }
+
+        .question-nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px var(--shadow-color);
+        }
+
+        .question-nav-btn.secondary {
+            background: transparent;
+            color: var(--text-secondary);
+            box-shadow: none;
+            border: 2px solid var(--border-color);
+        }
+
+        .question-nav-btn.secondary:hover {
+            border-color: var(--primary-gradient-start);
+            color: var(--primary-gradient-start);
+            box-shadow: none;
+        }
+
+        .question-counter {
+            font-weight: 700;
+            font-size: 0.95em;
+            color: var(--text-secondary);
+            white-space: nowrap;
         }
 
         [data-theme="dark"] .question-block:hover {
@@ -542,7 +783,7 @@
 
         .help-icon {
             background: #abb3ff;
-            color: #3b33a1;
+            color: #4a42b3;
             border: none;
             width: 30px;
             height: 30px;
@@ -787,46 +1028,6 @@
         .comments-textarea::placeholder {
             color: var(--text-secondary);
             opacity: 0.6;
-        }
-
-        /* Scroll Navigation Button */
-        .scroll-nav-btn {
-            position: fixed;
-            right: 20px;
-            bottom: 20px;
-            width: 55px;
-            height: 55px;
-            background: linear-gradient(135deg, var(--primary-gradient-start) 0%, var(--primary-gradient-end) 100%);
-            border: 3px solid rgba(255, 255, 255, 0.9);
-            border-radius: 50%;
-            color: white;
-            cursor: pointer;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5em;
-            box-shadow: 0 4px 20px var(--shadow-color);
-            transition: all 0.3s ease;
-            z-index: 999;
-            backdrop-filter: blur(10px);
-        }
-
-        .scroll-nav-btn:hover {
-            transform: translateY(-3px) scale(1.1);
-            box-shadow: 0 6px 25px var(--shadow-color);
-        }
-
-        .scroll-nav-btn.visible {
-            display: flex;
-        }
-
-        .scroll-nav-btn svg {
-            width: 34px;
-            height: 34px;
-        }
-
-        .scroll-nav-btn svg path {
-            fill: white;
         }
 
         /* Phase 4: Thank You */
@@ -1274,14 +1475,6 @@
         </svg>
     </button>
 
-    <!-- Scroll Navigation Button -->
-    <button class="scroll-nav-btn" id="scrollNavBtn" onclick="toggleScroll()" aria-label="Scroll navigation">
-        <svg id="scrollIcon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-                d="M18.2929 15.2893C18.6834 14.8988 18.6834 14.2656 18.2929 13.8751L13.4007 8.98766C12.6195 8.20726 11.3537 8.20757 10.5729 8.98835L5.68257 13.8787C5.29205 14.2692 5.29205 14.9024 5.68257 15.2929C6.0731 15.6835 6.70626 15.6835 7.09679 15.2929L11.2824 11.1073C11.673 10.7168 12.3061 10.7168 12.6966 11.1073L16.8787 15.2893C17.2692 15.6798 17.9024 15.6798 18.2929 15.2893Z"
-                fill="white"></path>
-        </svg>
-    </button>
 
     <div class="container">
         <div class="header">
@@ -1299,55 +1492,47 @@
                 </div>
                 <h2>Selecciona tu grupo</h2>
 
-                <div class="grade-section">
-                    <div class="grade-container">
-                        <div class="grade-title">Primero</div>
-                        <div class="group-grid">
+                <div class="grades-wrapper">
+                    <div class="grade-card" data-grade="1">
+                        <div class="grade-number">1°</div>
+                        <div class="grade-groups">
                             <button class="group-btn" onclick="selectGroup('1A', 1)">A</button>
                             <button class="group-btn" onclick="selectGroup('1B', 1)">B</button>
                             <button class="group-btn" onclick="selectGroup('1C', 1)">C</button>
+                            <button class="group-btn" onclick="selectGroup('1D', 1)">D</button>
                         </div>
                     </div>
-                </div>
 
-                <div class="grade-section">
-                    <div class="grade-container">
-                        <div class="grade-title">Segundo</div>
-                        <div class="group-grid">
+                    <div class="grade-card" data-grade="2">
+                        <div class="grade-number">2°</div>
+                        <div class="grade-groups">
                             <button class="group-btn" onclick="selectGroup('2A', 2)">A</button>
                             <button class="group-btn" onclick="selectGroup('2B', 2)">B</button>
                             <button class="group-btn" onclick="selectGroup('2C', 2)">C</button>
                         </div>
                     </div>
-                </div>
 
-                <div class="grade-section">
-                    <div class="grade-container">
-                        <div class="grade-title">Tercero</div>
-                        <div class="group-grid">
+                    <div class="grade-card" data-grade="3">
+                        <div class="grade-number">3°</div>
+                        <div class="grade-groups">
                             <button class="group-btn" onclick="selectGroup('3A', 3)">A</button>
                             <button class="group-btn" onclick="selectGroup('3B', 3)">B</button>
                             <button class="group-btn" onclick="selectGroup('3C', 3)">C</button>
                         </div>
                     </div>
-                </div>
 
-                <div class="grade-section">
-                    <div class="grade-container">
-                        <div class="grade-title">Cuarto</div>
-                        <div class="group-grid">
+                    <div class="grade-card" data-grade="4">
+                        <div class="grade-number">4°</div>
+                        <div class="grade-groups">
                             <button class="group-btn" onclick="selectGroup('4A', 4)">A</button>
                             <button class="group-btn" onclick="selectGroup('4B', 4)">B</button>
                             <button class="group-btn" onclick="selectGroup('4C', 4)">C</button>
-                            <button class="group-btn" onclick="selectGroup('4D', 4)">D</button>
                         </div>
                     </div>
-                </div>
 
-                <div class="grade-section">
-                    <div class="grade-container">
-                        <div class="grade-title">Quinto</div>
-                        <div class="group-grid">
+                    <div class="grade-card" data-grade="5">
+                        <div class="grade-number">5°</div>
+                        <div class="grade-groups">
                             <button class="group-btn" onclick="selectGroup('5A', 5)">A</button>
                             <button class="group-btn" onclick="selectGroup('5B', 5)">B</button>
                             <button class="group-btn" onclick="selectGroup('5C', 5)">C</button>
@@ -1371,14 +1556,20 @@
 
                 <div class="teacher-card">
                     <img src="" alt="Foto del profesor" class="teacher-photo" id="teacherPhoto">
-                    <div class="teacher-name" id="teacherName">Nombre del Profesor</div>
-                    <div class="teacher-subject" id="teacherSubject">Materia</div>
+                    <div class="teacher-info-group">
+                        <div class="teacher-name" id="teacherName">Nombre del Profesor</div>
+                        <div class="teacher-subject" id="teacherSubject">Materia</div>
+                    </div>
                 </div>
 
-                <div id="questionsContainer"></div>
+                <!-- Question progress dots -->
+                <div class="question-dots" id="questionDots"></div>
 
-                <div class="comments-section">
-                    <label class="comments-label">Comentarios, Observaciones o Felicitaciones para el(la)
+                <!-- Single question card -->
+                <div class="question-card-wrapper" id="questionsContainer"></div>
+
+                <div class="comments-section" id="commentsSection" style="display:none;">
+                    <label class="comments-label">Comentarios, observaciones o felicitaciones para el(la)
                         docente:</label>
                     <textarea class="comments-textarea" id="teacherComments"
                         placeholder="Escribe aquí tus comentarios (opcional)..."></textarea>
@@ -1386,7 +1577,8 @@
 
                 <div class="nav-buttons">
                     <button class="nav-btn" onclick="previousTeacher()" id="prevBtn">← Cambiar grupo</button>
-                    <button class="nav-btn" onclick="nextTeacher()" id="nextBtn">Siguiente →</button>
+                    <button class="nav-btn" onclick="nextTeacher()" id="nextBtn" style="display:none;">Siguiente
+                        →</button>
                 </div>
             </div>
 
@@ -1922,6 +2114,7 @@
         let gradeLevel = 1;
         let filteredTeachers = [];
         let currentTeacherIndex = 0;
+        let currentQuestionIndex = 0;
         let responses = [];
 
         function showAlert(message, title = 'Atención', type = 'warning') {
@@ -2106,11 +2299,76 @@
             document.getElementById('groupBadge').textContent = `${gradeName} ${groupLetter}`;
 
             currentTeacherIndex = 0;
-            loadTeacher();
+            loadTeacher('right');
             document.getElementById('scrollNavBtn').classList.add('visible');
         }
 
-        function loadTeacher() {
+        // --- Helper: derive first name and gender for personalized questions ---
+        function getTeacherFirstName(fullName) {
+            // Names are stored as LASTNAME LASTNAME, FIRSTNAME or all caps: FIRSTNAME LASTNAME
+            // Use first word of name as approximate first name
+            const parts = fullName.trim().split(/\s+/);
+            // Capitalize first letter only of first word
+            const first = parts[0];
+            return first.charAt(0) + first.slice(1).toLowerCase();
+        }
+
+        // Guess gender from name ending (simple heuristic)
+        function guessGender(fullName) {
+            const feminine = ['a', 'ia', 'ina', 'osa', 'era', 'ela', 'ena', 'ira', 'ura', 'lla', 'cia'];
+            const firstWord = fullName.trim().split(/\s+/)[0].toLowerCase();
+            return feminine.some(end => firstWord.endsWith(end)) ? 'f' : 'm';
+        }
+
+        function personalizeQuestion(qText, teacher) {
+            const firstName = getTeacherFirstName(teacher.name);
+            const gender = guessGender(teacher.name);
+            const pronoun = gender === 'f' ? 'la profesora' : 'el profesor';
+            const article = gender === 'f' ? 'la docente' : 'el docente';
+
+            return qText
+                .replace(/las clases del profesor son/gi, `las clases de ${pronoun} ${firstName} son`)
+                .replace(/las clases del profesor/gi, `las clases de ${pronoun} ${firstName}`)
+                .replace(/el profesor trae/gi, `${pronoun} ${firstName} trae`)
+                .replace(/el profesor aclara/gi, `${pronoun} ${firstName} aclara`)
+                .replace(/el profesor es puntual/gi, `${pronoun} ${firstName} es puntual`)
+                .replace(/el docente permite realizar/gi, `${article} permite realizar`)
+                .replace(/el docente exige/gi, `${article} exige`)
+                .replace(/la clase del docente/gi, `la clase de ${pronoun} ${firstName}`)
+                .replace(/el docente permite o me motiva/gi, `${article} me permite o motiva`)
+                .replace(/el docente atiende/gi, `${article} atiende`)
+                .replace(/el docente responde/gi, `${article} responde`)
+                .replace(/el docente es puntual/gi, `${article} es puntual`);
+        }
+
+        function renderQuestionDots() {
+            const container = document.getElementById('questionDots');
+            if (!container) return;
+            const answers = responses[currentTeacherIndex].answers;
+            container.innerHTML = questions.map((_, i) => {
+                let cls = 'question-dot';
+                if (i === currentQuestionIndex) cls += ' current';
+                else if (answers[i] !== null) cls += ' answered';
+                return `<div class="${cls}"></div>`;
+            }).join('');
+        }
+
+        function loadTeacher(animDir) {
+            const card = document.querySelector('.teacher-card');
+            if (card) {
+                card.classList.add('anim-out');
+                setTimeout(() => {
+                    updateTeacherUI();
+                    card.classList.remove('anim-out');
+                    card.classList.add('anim-in');
+                    setTimeout(() => card.classList.remove('anim-in'), 400);
+                }, 300);
+            } else {
+                updateTeacherUI();
+            }
+        }
+
+        function updateTeacherUI() {
             const teacher = filteredTeachers[currentTeacherIndex];
 
             const progress = ((currentTeacherIndex + 1) / filteredTeachers.length) * 100;
@@ -2123,44 +2381,65 @@
             document.getElementById('teacherName').textContent = teacher.name;
             document.getElementById('teacherSubject').textContent = teacher.subjects.join(' • ');
 
-            loadQuestions();
+            currentQuestionIndex = 0;
+            loadQuestion(currentQuestionIndex, 'right');
 
             document.getElementById('teacherComments').value = responses[currentTeacherIndex].comments;
 
             document.getElementById('prevBtn').disabled = false;
             document.getElementById('prevBtn').textContent =
-                currentTeacherIndex === 0 ? '← Cambiar grupo' : '← Anterior';
-            document.getElementById('nextBtn').textContent =
-                currentTeacherIndex === filteredTeachers.length - 1 ? 'Finalizar ✓' : 'Siguiente →';
+                currentTeacherIndex === 0 ? '← Cambiar grupo' : '← Anterior docente';
+            document.getElementById('nextBtn').style.display = 'none';
+
+            const comments = document.getElementById('commentsSection');
+            comments.style.display = 'none';
+            comments.classList.remove('animate-fade-slide-up');
         }
 
-        function loadQuestions() {
+        function loadQuestion(index, direction) {
             const container = document.getElementById('questionsContainer');
-            container.innerHTML = '';
-
+            container.style.display = 'block';
+            const teacher = filteredTeachers[currentTeacherIndex];
+            const q = questions[index];
+            const helpText = gradeLevel <= 2 ? q.helpText_Level1 : q.helpText_Level2;
             const currentResponses = responses[currentTeacherIndex].answers;
+            const personalQuestion = personalizeQuestion(q.questionText, teacher);
 
-            questions.forEach((q, index) => {
-                const helpText = gradeLevel <= 2 ? q.helpText_Level1 : q.helpText_Level2;
-                const isAnswered = currentResponses[index] !== null;
+            const outClass = direction === 'right' ? 'anim-out-left' : 'anim-out-right';
+            const inClass = direction === 'right' ? 'anim-in-right' : 'anim-in-left';
 
-                const questionBlock = document.createElement('div');
-                questionBlock.className = 'question-block';
-                questionBlock.id = `question-block-${index}`;
-                questionBlock.innerHTML = `
-                    <div class="question-completed-check ${isAnswered ? 'visible' : ''}" id="check-${index}">
-                        <svg viewBox="0 0 24 24"><path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm4.71,8.71-5,5a1,1,0,0,1-1.42,0l-3-3a1,1,0,1,1,1.42-1.42L11,13.59l4.29-4.3a1,1,0,0,1,1.42,1.42Z"/></svg>
-                    </div>
+            // If there's an existing block, animate it out first
+            const existing = container.querySelector('.question-block');
+            if (existing) {
+                existing.classList.add(outClass);
+                setTimeout(() => {
+                    container.innerHTML = '';
+                    _renderQuestion(container, index, q, personalQuestion, helpText, currentResponses, inClass, teacher);
+                    renderQuestionDots();
+                }, 260);
+            } else {
+                _renderQuestion(container, index, q, personalQuestion, helpText, currentResponses, inClass, teacher);
+                renderQuestionDots();
+            }
+        }
+
+        function _renderQuestion(container, index, q, personalQuestion, helpText, currentResponses, inClass, teacher) {
+            const isAnswered = currentResponses[index] !== null;
+            const isLastQ = index === questions.length - 1;
+            const isFirstQ = index === 0;
+
+            container.innerHTML = `
+                <div class="question-block ${inClass}" id="question-block-current">
                     <div class="question-header">
                         <div class="question-number">${index + 1}</div>
-                        <div class="question-text">${q.questionText}</div>
+                        <div class="question-text">${personalQuestion}</div>
                         <button class="help-icon">
                             <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2A10 10 0 1 0 22 12A10 10 0 0 0 12 2Zm1 15h-2v-6h2v6Zm0-8h-2V7h2v2Z"/></svg>
                             <div class="help-tooltip">${helpText}</div>
                         </button>
                     </div>
-                    <div class="answer-options" id="answers-${index}">
-                        ${answerOptions.map((option, optIndex) => `
+                    <div class="answer-options" id="answers-current">
+                        ${answerOptions.map(option => `
                             <button class="answer-btn ${currentResponses[index] === option ? 'selected' : ''}" 
                                     data-option="${option}"
                                     onclick="selectAnswer(${index}, '${option}')">
@@ -2168,15 +2447,65 @@
                             </button>
                         `).join('')}
                     </div>
-                `;
-                container.appendChild(questionBlock);
-            });
+                    <div class="question-nav">
+                        <button class="question-nav-btn secondary" onclick="stepQuestion(-1)" ${isFirstQ ? 'disabled style="opacity:0.4;cursor:default"' : ''}>← Anterior</button>
+                        <span class="question-counter">${index + 1} / ${questions.length}</span>
+                        <button class="question-nav-btn" onclick="stepQuestion(1)">${isLastQ ? 'Enviar comentarios ✓' : 'Siguiente →'}</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function stepQuestion(dir) {
+            const newIndex = currentQuestionIndex + dir;
+
+            if (dir === 1) {
+                // Moving forward — validate current question
+                const answer = responses[currentTeacherIndex].answers[currentQuestionIndex];
+                if (answer === null) {
+                    showAlert('Por favor responde esta pregunta antes de continuar.', 'Pregunta sin respuesta', 'warning');
+                    return;
+                }
+            }
+
+            if (newIndex >= questions.length) {
+                // All questions done — show comments + teacher nav button
+                const comments = document.getElementById('commentsSection');
+                comments.style.display = 'block';
+                comments.classList.add('animate-fade-slide-up');
+
+                document.getElementById('nextBtn').style.display = 'inline-block';
+                document.getElementById('nextBtn').textContent =
+                    currentTeacherIndex === filteredTeachers.length - 1 ? 'Finalizar ✓' : 'Siguiente docente →';
+                // Clear single card and show summary
+                const container = document.getElementById('questionsContainer');
+                const existing = container.querySelector('.question-block');
+                if (existing) {
+                    existing.classList.add('anim-out-left');
+                    setTimeout(() => {
+                        container.innerHTML = '';
+                        container.style.display = 'none';
+                    }, 260);
+                } else {
+                    container.innerHTML = '';
+                    container.style.display = 'none';
+                }
+                // Update dots to all answered
+                renderQuestionDots();
+                window.scrollTo(0, 0);
+                return;
+            }
+
+            if (newIndex < 0) return;
+
+            currentQuestionIndex = newIndex;
+            loadQuestion(currentQuestionIndex, dir > 0 ? 'right' : 'left');
         }
 
         function selectAnswer(questionIndex, answer) {
             responses[currentTeacherIndex].answers[questionIndex] = answer;
 
-            const buttons = document.querySelectorAll(`#answers-${questionIndex} .answer-btn`);
+            const buttons = document.querySelectorAll('#answers-current .answer-btn');
             buttons.forEach(btn => {
                 if (btn.textContent.trim() === answer) {
                     btn.classList.add('selected');
@@ -2185,10 +2514,7 @@
                 }
             });
 
-            const check = document.getElementById(`check-${questionIndex}`);
-            if (check) {
-                check.classList.add('visible');
-            }
+            renderQuestionDots();
         }
 
         function validateCurrentTeacher() {
@@ -2208,7 +2534,7 @@
                 submitSurvey();
             } else {
                 currentTeacherIndex++;
-                loadTeacher();
+                loadTeacher('right');
                 window.scrollTo(0, 0);
             }
         }
@@ -2216,9 +2542,8 @@
         function previousTeacher() {
             if (currentTeacherIndex > 0) {
                 responses[currentTeacherIndex].comments = document.getElementById('teacherComments').value.trim();
-
                 currentTeacherIndex--;
-                loadTeacher();
+                loadTeacher('left');
                 window.scrollTo(0, 0);
             } else {
                 resetSurvey();
@@ -2235,48 +2560,8 @@
             document.getElementById('surveyContainer').style.display = 'none';
             document.getElementById('groupSelection').style.display = 'block';
 
-            // Hide scroll navigation button
-            document.getElementById('scrollNavBtn').classList.remove('visible');
-
             window.scrollTo(0, 0);
         }
-
-        function toggleScroll() {
-            const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
-
-            // If we're near the top (within 200px), scroll to bottom
-            if (scrollPosition < 200) {
-                window.scrollTo({
-                    top: document.documentElement.scrollHeight,
-                    behavior: 'smooth'
-                });
-            } else {
-                // Otherwise scroll to top
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            }
-        }
-
-        // Update scroll button icon based on position
-        window.addEventListener('scroll', () => {
-            const scrollBtn = document.getElementById('scrollNavBtn');
-            const scrollIcon = document.getElementById('scrollIcon');
-
-            if (!scrollBtn || !scrollBtn.classList.contains('visible')) return;
-
-            const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
-
-            // Change icon based on scroll position
-            if (scrollPosition < 200) {
-                // Show down arrow
-                scrollIcon.innerHTML = '<path d="M5.70711 9.71069C5.31658 10.1012 5.31658 10.7344 5.70711 11.1249L10.5993 16.0123C11.3805 16.7927 12.6463 16.7924 13.4271 16.0117L18.3174 11.1213C18.708 10.7308 18.708 10.0976 18.3174 9.70708C17.9269 9.31655 17.2937 9.31655 16.9032 9.70708L12.7176 13.8927C12.3271 14.2833 11.6939 14.2832 11.3034 13.8927L7.12132 9.71069C6.7308 9.32016 6.09763 9.32016 5.70711 9.71069Z" fill="white"></path>';
-            } else {
-                // Show up arrow
-                scrollIcon.innerHTML = '<path d="M18.2929 15.2893C18.6834 14.8988 18.6834 14.2656 18.2929 13.8751L13.4007 8.98766C12.6195 8.20726 11.3537 8.20757 10.5729 8.98835L5.68257 13.8787C5.29205 14.2692 5.29205 14.9024 5.68257 15.2929C6.0731 15.6835 6.70626 15.6835 7.09679 15.2929L11.2824 11.1073C11.673 10.7168 12.3061 10.7168 12.6966 11.1073L16.8787 15.2893C17.2692 15.6798 17.9024 15.6798 18.2929 15.2893Z" fill="white"></path>';
-            }
-        });
 
         async function submitSurvey() {
             document.getElementById('surveyContainer').style.display = 'none';
@@ -2321,9 +2606,6 @@
             responses = [];
 
             document.getElementById('groupSelection').style.display = 'block';
-
-            // Hide scroll navigation button
-            document.getElementById('scrollNavBtn').classList.remove('visible');
 
             window.scrollTo(0, 0);
         }
