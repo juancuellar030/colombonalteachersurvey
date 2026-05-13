@@ -1607,224 +1607,305 @@
 
     <script>
         // Configuration
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzwXwS6ldun2iQZHCWp5Sn-0p7-ijEDxP3NY4lYfzuIh6DBhJuRjF5MjeABPFHYS1W7yQ/exec';
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxy50BOQGfHKCA587774yQZZ--w_8iKdsFJsTD1w6W9cRlRtWS_q41Ms83ii8M5oEvwRw/exec';
 
         const teachers = [
             // ===== GRADE 1 TEACHERS =====
             {
                 name: "KARLA FABIANA CABRERA ROA",
+                gender: "f",
                 subjects: {
-                    "1A": ["Lenguaje / Plan Lector", "Ciencias Naturales"],
-                    "1B": ["Lenguaje / Plan Lector", "Ciencias Naturales"],
-                    "1C": ["Lenguaje / Plan Lector", "Ciencias Naturales"]
+                    "1A": ["Lenguaje", "Plan Lector", "Religión"],
+                    "1B": ["Lenguaje", "Plan Lector", "Religión"],
+                    "1C": ["Lenguaje", "Plan Lector", "Religión"],
+                    "1D": ["Lenguaje", "Plan Lector", "Religión"]
                 },
                 imageFile: "karla_cabrera.jpg",
-                groups: ["1A", "1B", "1C"]
-            },
-            {
-                name: "CLAUDIA PATRICIA MONTILLA RIOS",
-                subjects: {
-                    "1A": ["Matemáticas y Geometría", "Religión", "Educación Física"],
-                    "1B": ["Matemáticas y Geometría", "Religión", "Educación Física"],
-                    "1C": ["Matemáticas y Geometría", "Religión", "Educación Física"]
-                },
-                imageFile: "claudia_montilla.jpg",
-                groups: ["1A", "1B", "1C"]
+                groups: ["1A", "1B", "1C", "1D"]
             },
             {
                 name: "MILDRETH PERDOMO RODRIGUEZ",
+                gender: "f",
                 subjects: {
-                    "1A": ["Ciencias Sociales / Cátedra Paz"],
-                    "1B": ["Ciencias Sociales / Cátedra Paz"],
-                    "1C": ["Ciencias Sociales / Cátedra Paz"]
+                    "1A": ["Ciencias Naturales", "Ciencias Sociales", "Cátedra por la Paz"],
+                    "1B": ["Ciencias Naturales", "Ciencias Sociales", "Cátedra por la Paz"],
+                    "1C": ["Ciencias Naturales", "Ciencias Sociales", "Cátedra por la Paz"],
+                    "1D": ["Ciencias Naturales", "Ciencias Sociales", "Cátedra por la Paz"]
                 },
                 imageFile: "mildreth_perdomo.jpg",
-                groups: ["1A", "1B", "1C"]
+                groups: ["1A", "1B", "1C", "1D"]
             },
             {
-                name: "MARIA ISABEL LOSADA DÍAZ",
+                name: "CLAUDIA PATRICIA MONTILLA RIOS",
+                gender: "f",
+                subjects: {
+                    "1A": ["Matemáticas", "Geometría"],
+                    "1B": ["Matemáticas", "Geometría"],
+                    "1C": ["Matemáticas", "Geometría"],
+                    "1D": ["Matemáticas", "Geometría"]
+                },
+                imageFile: "claudia_montilla.jpg",
+                groups: ["1A", "1B", "1C", "1D"]
+            },
+            {
+                name: "KARENTH ZULLY TATIANA GARZON DUQUE",
+                gender: "f",
                 subjects: {
                     "1A": ["English", "Science"],
                     "1B": ["English", "Science"]
                 },
-                imageFile: "maria_losada.jpg",
+                imageFile: "karenth_garzon.jpg",
                 groups: ["1A", "1B"]
             },
             {
-                name: "KARENTH ZULLY TATIANA GARZON DUQUE",
+                name: "WALTER TAFUR SUAREZ",
+                gender: "m",
                 subjects: {
                     "1C": ["English", "Science"]
                 },
-                imageFile: "karenth_garzon.jpg",
+                imageFile: "walter_tafur.jpg",
                 groups: ["1C"]
             },
             {
-                name: "INGRID YICETH DIAZ MOSQUERA",
-                subjects: {
-                    "1A": ["Arts"],
-                    "1B": ["Arts"],
-                    "1C": ["Arts"]
-                },
-                imageFile: "ingrid_diaz.jpg",
-                groups: ["1A", "1B", "1C"]
-            },
-            {
-                name: "SIR DAVID RONALDO FIERRO NIETO",
+                name: "SERGIO MEDINA MACHADO",
+                gender: "m",
                 subjects: {
                     "1A": ["Technology"],
                     "1B": ["Technology"],
-                    "1C": ["Technology"]
+                    "1C": ["Technology"],
+                    "1D": ["Technology", "Science", "English"]
                 },
-                imageFile: "david_fierro.jpg",
-                groups: ["1A", "1B", "1C"]
+                imageFile: "sergio_medina.jpg",
+                groups: ["1A", "1B", "1C", "1D"]
+            },
+            {
+                name: "KARLA FABIANA CABRERA ROA",
+                gender: "f",
+                subjects: {
+                    "1A": ["Educación Física"],
+                    "1B": ["Educación Física"]
+                },
+                imageFile: "karla_cabrera.jpg",
+                groups: ["1A", "1B"]
+            },
+            {
+                name: "INGRID YICETH DIAZ MOSQUERA",
+                gender: "f",
+                subjects: {
+                    "1A": ["Arts"],
+                    "1B": ["Arts"],
+                    "1C": ["Arts", "Educación Física"],
+                    "1D": ["Arts", "Educación Física"]
+                },
+                imageFile: "ingrid_diaz.jpg",
+                groups: ["1A", "1B", "1C", "1D"]
+            },
+            {
+                name: "JHONATHAN STIVEN CUBILLOS FLOR",
+                gender: "m",
+                subjects: {
+                    "1A": ["Ethics"],
+                    "1B": ["Ethics"],
+                    "1C": ["Ethics"],
+                    "1D": ["Ethics"]
+                },
+                imageFile: "jhonathan_cubillos.jpg",
+                groups: ["1A", "1B", "1C", "1D"]
             },
 
             // ===== GRADE 2 TEACHERS =====
             {
                 name: "LEIDY JOHANNA ANDRADE MENDEZ",
+                gender: "f",
                 subjects: {
-                    "2A": ["Lenguaje / Plan Lector", "Ciencias Naturales", "Religión"],
-                    "2B": ["Lenguaje / Plan Lector", "Ciencias Naturales", "Religión"],
-                    "2C": ["Lenguaje / Plan Lector", "Ciencias Naturales"]
+                    "2A": ["Lenguaje", "Ciencias Sociales", "Plan Lector", "Cátedra por la Paz", "Religión"],
+                    "2B": ["Lenguaje", "Ciencias Sociales", "Plan Lector", "Cátedra por la Paz"],
+                    "2C": ["Lenguaje", "Ciencias Sociales", "Plan Lector", "Cátedra por la Paz"]
                 },
                 imageFile: "leidy_andrade.jpg",
                 groups: ["2A", "2B", "2C"]
             },
             {
-                name: "ANA MARIA ROCHA CALIMÁN",
+                name: "CLAUDIA LORENA PERDOMO PASCUAS",
+                gender: "f",
                 subjects: {
-                    "2A": ["Matemáticas y Geometría"],
-                    "2B": ["Matemáticas y Geometría"],
-                    "2C": ["Matemáticas y Geometría", "Religión"]
+                    "2A": ["Matemáticas", "Geometría"],
+                    "2B": ["Matemáticas", "Geometría"],
+                    "2C": ["Matemáticas", "Geometría", "Religión"]
                 },
-                imageFile: "ana_rocha.jpg",
+                imageFile: "claudia_perdomo.jpg",
+                groups: ["2A", "2B", "2C"]
+            },
+            {
+                name: "LUISA FERNANDA CEDEÑO RINCÓN",
+                gender: "f",
+                subjects: {
+                    "2A": ["Ciencias Naturales"],
+                    "2B": ["Ciencias Naturales"],
+                    "2C": ["Ciencias Naturales"]
+                },
+                imageFile: "luisa_cedeno.jpg",
                 groups: ["2A", "2B", "2C"]
             },
             {
                 name: "EDGARDO LOZANO MARÍN",
+                gender: "m",
                 subjects: {
-                    "2A": ["English"],
+                    "2A": ["English", "Science"],
                     "2B": ["English", "Science"]
                 },
                 imageFile: "edgardo_lozano.jpg",
                 groups: ["2A", "2B"]
             },
             {
-                name: "KARENTH ZULLY TATIANA GARZON DUQUE",
+                name: "WALTER TAFUR SUAREZ",
+                gender: "m",
                 subjects: {
-                    "2C": ["English"]
+                    "2C": ["English", "Science"]
                 },
-                imageFile: "karenth_garzon.jpg",
+                imageFile: "walter_tafur.jpg",
                 groups: ["2C"]
             },
             {
-                name: "MILDRETH PERDOMO RODRIGUEZ",
-                subjects: {
-                    "2A": ["Ciencias Sociales / Cátedra Paz"],
-                    "2B": ["Ciencias Sociales / Cátedra Paz"],
-                    "2C": ["Ciencias Sociales / Cátedra Paz"]
-                },
-                imageFile: "mildreth_perdomo.jpg",
-                groups: ["2A", "2B", "2C"]
-            },
-            {
-                name: "JUAN DIEGO CUELLAR MAZABEL",
-                subjects: {
-                    "2A": ["Science"],
-                    "2C": ["Science"]
-                },
-                imageFile: "juan_cuellar.jpg",
-                groups: ["2A", "2C"]
-            },
-            {
-                name: "GLORIA PATRICIA OTALORA PORTILLO",
-                subjects: {
-                    "2A": ["Educación Física y Danzas"],
-                    "2B": ["Educación Física y Danzas"],
-                    "2C": ["Educación Física y Danzas"]
-                },
-                imageFile: "gloria_otalora.jpg",
-                groups: ["2A", "2B", "2C"]
-            },
-            {
-                name: "INGRID YICETH DIAZ MOSQUERA",
-                subjects: {
-                    "2A": ["Arts"],
-                    "2B": ["Arts"],
-                    "2C": ["Arts"]
-                },
-                imageFile: "ingrid_diaz.jpg",
-                groups: ["2A", "2B", "2C"]
-            },
-            {
-                name: "SIR DAVID RONALDO FIERRO NIETO",
+                name: "SERGIO MEDINA MACHADO",
+                gender: "m",
                 subjects: {
                     "2A": ["Technology"],
                     "2B": ["Technology"],
                     "2C": ["Technology"]
                 },
-                imageFile: "david_fierro.jpg",
+                imageFile: "sergio_medina.jpg",
+                groups: ["2A", "2B", "2C"]
+            },
+            {
+                name: "LEIDY JOHANNA ANDRADE MENDEZ",
+                gender: "f",
+                subjects: {
+                    "2B": ["Religión"],
+                    "2C": ["Religión"]
+                },
+                imageFile: "leidy_andrade.jpg",
+                groups: ["2B", "2C"]
+            },
+            {
+                name: "INGRID YICETH DIAZ MOSQUERA",
+                gender: "f",
+                subjects: {
+                    "2A": ["Arts", "Educación Física"],
+                    "2B": ["Arts", "Educación Física"],
+                    "2C": ["Arts", "Educación Física"]
+                },
+                imageFile: "ingrid_diaz.jpg",
+                groups: ["2A", "2B", "2C"]
+            },
+            {
+                name: "JHONATHAN STIVEN CUBILLOS FLOR",
+                gender: "m",
+                subjects: {
+                    "2A": ["Ethics"],
+                    "2B": ["Ethics"],
+                    "2C": ["Ethics"]
+                },
+                imageFile: "jhonathan_cubillos.jpg",
                 groups: ["2A", "2B", "2C"]
             },
 
             // ===== GRADE 3 TEACHERS =====
             {
-                name: "NATALIA CASTRO DÍAZ",
+                name: "ARELIS CAROLINA BARREIRO DURÁN",
+                gender: "f",
                 subjects: {
-                    "3A": ["Lenguaje / Plan Lector", "Ciencias Naturales", "Religión"],
-                    "3B": ["Lenguaje / Plan Lector", "Ciencias Naturales", "Religión"],
-                    "3C": ["Lenguaje / Plan Lector", "Ciencias Naturales"]
+                    "3A": ["Lenguaje", "Ciencias Sociales", "Plan Lector", "Cátedra por la Paz", "Religión"],
+                    "3B": ["Lenguaje", "Ciencias Sociales", "Plan Lector", "Cátedra por la Paz"],
+                    "3C": ["Lenguaje", "Ciencias Sociales", "Plan Lector", "Cátedra por la Paz"]
                 },
-                imageFile: "natalia_castro.jpg",
+                imageFile: "arelis_barreiro.jpg",
                 groups: ["3A", "3B", "3C"]
             },
             {
-                name: "ANA MARIA ROCHA CALIMÁN",
+                name: "CLAUDIA LORENA PERDOMO PASCUAS",
+                gender: "f",
                 subjects: {
-                    "3A": ["Matemáticas y Geometría"],
-                    "3B": ["Matemáticas y Geometría"]
+                    "3A": ["Matemáticas", "Geometría"],
+                    "3B": ["Matemáticas", "Geometría"]
                 },
-                imageFile: "ana_rocha.jpg",
+                imageFile: "claudia_perdomo.jpg",
                 groups: ["3A", "3B"]
             },
             {
-                name: "CLAUDIA LORENA PERDOMO PASCUAS",
+                name: "JUAN PABLO CONTA TOVAR",
+                gender: "m",
                 subjects: {
-                    "3C": ["Matemáticas y Geometría", "Religión"]
+                    "3C": ["Matemáticas", "Geometría"]
                 },
-                imageFile: "claudia_perdomo.jpg",
+                imageFile: "juan_conta.jpg",
                 groups: ["3C"]
             },
             {
-                name: "MELANY ALEJANDRA BALLESTEROS LEAL",
+                name: "LUISA FERNANDA CEDEÑO RINCÓN",
+                gender: "f",
                 subjects: {
-                    "3A": ["English"],
+                    "3A": ["Ciencias Naturales"],
+                    "3B": ["Ciencias Naturales"],
+                    "3C": ["Ciencias Naturales"]
+                },
+                imageFile: "luisa_cedeno.jpg",
+                groups: ["3A", "3B", "3C"]
+            },
+            {
+                name: "YULI PAOLA CHALA ROJAS",
+                gender: "f",
+                subjects: {
+                    "3A": ["English", "Science"],
                     "3B": ["English", "Science"]
                 },
-                imageFile: "melany_ballesteros.jpg",
+                imageFile: "yuli_chala.jpg",
                 groups: ["3A", "3B"]
             },
             {
-                name: "WALTER TAFUR SUAREZ",
+                name: "MARIA ISABEL LOSADA DÍAZ",
+                gender: "f",
                 subjects: {
-                    "3A": ["Science"],
                     "3C": ["English", "Science"]
                 },
-                imageFile: "walter_tafur.jpg",
-                groups: ["3A", "3C"]
+                imageFile: "maria_losada.jpg",
+                groups: ["3C"]
             },
             {
-                name: "GLORIA PATRICIA OTALORA PORTILLO",
+                name: "JUAN DIEGO CUELLAR MAZABEL",
+                gender: "m",
                 subjects: {
-                    "3A": ["Educación Física y Danzas"],
-                    "3B": ["Educación Física y Danzas"],
-                    "3C": ["Educación Física y Danzas"]
+                    "3A": ["Technology"],
+                    "3B": ["Technology"],
+                    "3C": ["Technology"]
+                },
+                imageFile: "juan_cuellar.jpg",
+                groups: ["3A", "3B", "3C"]
+            },
+            {
+                name: "MILDRETH PERDOMO RODRIGUEZ",
+                gender: "f",
+                subjects: {
+                    "3B": ["Religión"],
+                    "3C": ["Religión"]
+                },
+                imageFile: "mildreth_perdomo.jpg",
+                groups: ["3B", "3C"]
+            },
+            {
+                name: "PATRICIA OTÁLORA PORTILLO",
+                gender: "f",
+                subjects: {
+                    "3A": ["Educación Física"],
+                    "3B": ["Educación Física"],
+                    "3C": ["Educación Física"]
                 },
                 imageFile: "gloria_otalora.jpg",
                 groups: ["3A", "3B", "3C"]
             },
             {
                 name: "INGRID YICETH DIAZ MOSQUERA",
+                gender: "f",
                 subjects: {
                     "3A": ["Arts"],
                     "3B": ["Arts"],
@@ -1834,173 +1915,155 @@
                 groups: ["3A", "3B", "3C"]
             },
             {
-                name: "SIR DAVID RONALDO FIERRO NIETO",
+                name: "JHONATHAN STIVEN CUBILLOS FLOR",
+                gender: "m",
                 subjects: {
-                    "3A": ["Technology"],
-                    "3B": ["Technology"],
-                    "3C": ["Technology"]
+                    "3A": ["Ethics"],
+                    "3B": ["Ethics"],
+                    "3C": ["Ethics"]
                 },
-                imageFile: "david_fierro.jpg",
+                imageFile: "jhonathan_cubillos.jpg",
                 groups: ["3A", "3B", "3C"]
             },
 
             // ===== GRADE 4 TEACHERS =====
             {
-                name: "KATHERINE CABRERA MEDINA",
+                name: "NATALIA CASTRO DÍAZ",
+                gender: "f",
                 subjects: {
-                    "4A": ["Lenguaje / Plan Lector", "Ciencias Sociales / Cátedra Paz", "Religión"],
-                    "4B": ["Lenguaje / Plan Lector", "Religión"],
-                    "4C": ["Lenguaje / Plan Lector"],
-                    "4D": ["Lenguaje / Plan Lector"]
+                    "4A": ["Lenguaje", "Ciencias Sociales", "Plan Lector", "Cátedra por la Paz", "Religión"],
+                    "4B": ["Lenguaje", "Ciencias Sociales", "Plan Lector", "Cátedra por la Paz"],
+                    "4C": ["Lenguaje", "Ciencias Sociales", "Plan Lector", "Cátedra por la Paz"]
                 },
-                imageFile: "katherine_cabrera.jpg",
-                groups: ["4A", "4B", "4C", "4D"]
+                imageFile: "natalia_castro.jpg",
+                groups: ["4A", "4B", "4C"]
             },
             {
-                name: "CLAUDIA LORENA PERDOMO PASCUAS",
+                name: "ANA MARIA ROCHA CALIMÁN",
+                gender: "f",
                 subjects: {
-                    "4A": ["Matemáticas y Geometría"],
-                    "4B": ["Matemáticas y Geometría"],
-                    "4C": ["Matemáticas y Geometría"],
-                    "4D": ["Matemáticas y Geometría"]
+                    "4A": ["Matemáticas", "Geometría"],
+                    "4B": ["Matemáticas", "Geometría"],
+                    "4C": ["Matemáticas", "Geometría"]
                 },
-                imageFile: "claudia_perdomo.jpg",
-                groups: ["4A", "4B", "4C", "4D"]
-            },
-            {
-                name: "YULI PAOLA CHALA ROJAS",
-                subjects: {
-                    "4A": ["English"],
-                    "4B": ["English", "Science"]
-                },
-                imageFile: "yuli_chala.jpg",
-                groups: ["4A", "4B"]
-            },
-            {
-                name: "ARELIS CAROLINA BARREIRO DURÁN",
-                subjects: {
-                    "4B": ["Ciencias Sociales / Cátedra Paz"],
-                    "4C": ["Ciencias Sociales / Cátedra Paz", "Religión"],
-                    "4D": ["Ciencias Sociales / Cátedra Paz", "Religión"]
-                },
-                imageFile: "arelis_barreiro.jpg",
-                groups: ["4B", "4C", "4D"]
-            },
-            {
-                name: "WALTER TAFUR SUAREZ",
-                subjects: {
-                    "4C": ["Science"],
-                    "4D": ["Science"]
-                },
-                imageFile: "walter_tafur.jpg",
-                groups: ["4C", "4D"]
+                imageFile: "ana_rocha.jpg",
+                groups: ["4A", "4B", "4C"]
             },
             {
                 name: "LUISA FERNANDA CEDEÑO RINCÓN",
+                gender: "f",
                 subjects: {
                     "4A": ["Ciencias Naturales"],
                     "4B": ["Ciencias Naturales"],
-                    "4C": ["Ciencias Naturales"],
-                    "4D": ["Ciencias Naturales"]
+                    "4C": ["Ciencias Naturales"]
                 },
                 imageFile: "luisa_cedeno.jpg",
-                groups: ["4A", "4B", "4C", "4D"]
+                groups: ["4A", "4B", "4C"]
             },
             {
-                name: "GLORIA PATRICIA OTALORA PORTILLO",
+                name: "MELANY ALEJANDRA BALLESTEROS LEAL",
+                gender: "f",
                 subjects: {
-                    "4A": ["Educación Física y Danzas"],
-                    "4B": ["Educación Física y Danzas"],
-                    "4C": ["Educación Física y Danzas"],
-                    "4D": ["Educación Física y Danzas"]
+                    "4A": ["English"],
+                    "4B": ["English"],
+                    "4C": ["English"]
                 },
-                imageFile: "gloria_otalora.jpg",
-                groups: ["4A", "4B", "4C", "4D"]
+                imageFile: "melany_ballesteros.jpg",
+                groups: ["4A", "4B", "4C"]
             },
             {
-                name: "INGRID YICETH DIAZ MOSQUERA",
+                name: "MARIA ISABEL LOSADA DÍAZ",
+                gender: "f",
                 subjects: {
-                    "4A": ["Arts"],
-                    "4B": ["Arts"],
-                    "4C": ["Arts"],
-                    "4D": ["Arts"]
+                    "4A": ["Science"],
+                    "4B": ["Science"]
                 },
-                imageFile: "ingrid_diaz.jpg",
-                groups: ["4A", "4B", "4C", "4D"]
+                imageFile: "maria_losada.jpg",
+                groups: ["4A", "4B"]
             },
             {
                 name: "JUAN DIEGO CUELLAR MAZABEL",
+                gender: "m",
                 subjects: {
                     "4A": ["Technology"],
                     "4B": ["Technology"],
-                    "4C": ["Technology"],
-                    "4D": ["Technology"]
+                    "4C": ["Technology", "Science"]
                 },
                 imageFile: "juan_cuellar.jpg",
-                groups: ["4A", "4B", "4C", "4D"]
+                groups: ["4A", "4B", "4C"]
+            },
+            {
+                name: "MILDRETH PERDOMO RODRIGUEZ",
+                gender: "f",
+                subjects: {
+                    "4B": ["Religión"],
+                    "4C": ["Religión"]
+                },
+                imageFile: "mildreth_perdomo.jpg",
+                groups: ["4B", "4C"]
+            },
+            {
+                name: "PATRICIA OTÁLORA PORTILLO",
+                gender: "f",
+                subjects: {
+                    "4A": ["Educación Física"],
+                    "4B": ["Educación Física"],
+                    "4C": ["Educación Física"]
+                },
+                imageFile: "gloria_otalora.jpg",
+                groups: ["4A", "4B", "4C"]
+            },
+            {
+                name: "INGRID YICETH DIAZ MOSQUERA",
+                gender: "f",
+                subjects: {
+                    "4A": ["Arts"],
+                    "4B": ["Arts"],
+                    "4C": ["Arts"]
+                },
+                imageFile: "ingrid_diaz.jpg",
+                groups: ["4A", "4B", "4C"]
+            },
+            {
+                name: "JHONATHAN STIVEN CUBILLOS FLOR",
+                gender: "m",
+                subjects: {
+                    "4A": ["Ethics"],
+                    "4B": ["Ethics"],
+                    "4C": ["Ethics"]
+                },
+                imageFile: "jhonathan_cubillos.jpg",
+                groups: ["4A", "4B", "4C"]
             },
 
             // ===== GRADE 5 TEACHERS =====
             {
                 name: "LIZETH JOHANA PELÁEZ LEGUIZAMO",
+                gender: "f",
                 subjects: {
-                    "5A": ["Lenguaje / Plan Lector", "Ciencias Sociales / Cátedra Paz", "Religión"],
-                    "5B": ["Lenguaje / Plan Lector", "Religión"],
-                    "5C": ["Lenguaje / Plan Lector"],
-                    "5D": ["Lenguaje / Plan Lector"]
+                    "5A": ["Lenguaje", "Ciencias Sociales", "Plan Lector", "Cátedra por la Paz"],
+                    "5B": ["Lenguaje", "Ciencias Sociales", "Plan Lector", "Cátedra por la Paz"],
+                    "5C": ["Lenguaje", "Plan Lector"],
+                    "5D": ["Lenguaje", "Plan Lector"]
                 },
                 imageFile: "lizeth_pelaez.jpg",
                 groups: ["5A", "5B", "5C", "5D"]
             },
             {
                 name: "JUAN PABLO CONTA TOVAR",
+                gender: "m",
                 subjects: {
-                    "5A": ["Matemáticas y Geometría"],
-                    "5B": ["Matemáticas y Geometría"],
-                    "5C": ["Matemáticas y Geometría"],
-                    "5D": ["Matemáticas y Geometría"]
+                    "5A": ["Matemáticas", "Geometría", "Religión"],
+                    "5B": ["Matemáticas", "Geometría", "Religión"],
+                    "5C": ["Matemáticas", "Geometría"],
+                    "5D": ["Matemáticas", "Geometría"]
                 },
                 imageFile: "juan_conta.jpg",
                 groups: ["5A", "5B", "5C", "5D"]
             },
             {
-                name: "MARTHA ISABEL GARCÍA TORRES",
-                subjects: {
-                    "5A": ["English"],
-                    "5B": ["English", "Science"]
-                },
-                imageFile: "martha_garcia.jpg",
-                groups: ["5A", "5B"]
-            },
-            {
-                name: "CARLOS ANDRES LOSADA MEZA",
-                subjects: {
-                    "5C": ["English"],
-                    "5D": ["English"]
-                },
-                imageFile: "carlos_losada.jpg",
-                groups: ["5C", "5D"]
-            },
-            {
-                name: "ARELIS CAROLINA BARREIRO DURÁN",
-                subjects: {
-                    "5B": ["Ciencias Sociales / Cátedra Paz"],
-                    "5C": ["Ciencias Sociales / Cátedra Paz"],
-                    "5D": ["Ciencias Sociales / Cátedra Paz"]
-                },
-                imageFile: "arelis_barreiro.jpg",
-                groups: ["5B", "5C", "5D"]
-            },
-            {
-                name: "KARENTH ZULLY TATIANA GARZON DUQUE",
-                subjects: {
-                    "5A": ["Science"]
-                },
-                imageFile: "karenth_garzon.jpg",
-                groups: ["5A"]
-            },
-            {
                 name: "LUISA FERNANDA CEDEÑO RINCÓN",
+                gender: "f",
                 subjects: {
                     "5A": ["Ciencias Naturales"],
                     "5B": ["Ciencias Naturales"],
@@ -2011,18 +2074,71 @@
                 groups: ["5A", "5B", "5C", "5D"]
             },
             {
-                name: "GLORIA PATRICIA OTALORA PORTILLO",
+                name: "MARTHA ISABEL GARCÍA TORRES",
+                gender: "f",
                 subjects: {
-                    "5A": ["Educación Física y Danzas"],
-                    "5B": ["Educación Física y Danzas"],
-                    "5C": ["Educación Física y Danzas"],
-                    "5D": ["Educación Física y Danzas"]
+                    "5A": ["English", "Science"],
+                    "5B": ["English", "Science"]
+                },
+                imageFile: "martha_garcia.jpg",
+                groups: ["5A", "5B"]
+            },
+            {
+                name: "CARLOS ANDRES LOSADA MEZA",
+                gender: "m",
+                subjects: {
+                    "5C": ["English"],
+                    "5D": ["English"]
+                },
+                imageFile: "carlos_losada.jpg",
+                groups: ["5C", "5D"]
+            },
+            {
+                name: "MARIA ISABEL LOSADA DÍAZ",
+                gender: "f",
+                subjects: {
+                    "5D": ["Science"]
+                },
+                imageFile: "maria_losada.jpg",
+                groups: ["5D"]
+            },
+            {
+                name: "JUAN DIEGO CUELLAR MAZABEL",
+                gender: "m",
+                subjects: {
+                    "5A": ["Technology"],
+                    "5B": ["Technology"],
+                    "5C": ["Technology", "Science"],
+                    "5D": ["Technology"]
+                },
+                imageFile: "juan_cuellar.jpg",
+                groups: ["5A", "5B", "5C", "5D"]
+            },
+            {
+                name: "CLAUDIA PATRICIA MONTILLA RIOS",
+                gender: "f",
+                subjects: {
+                    "5C": ["Ciencias Sociales", "Cátedra por la Paz"],
+                    "5D": ["Ciencias Sociales", "Cátedra por la Paz"]
+                },
+                imageFile: "claudia_montilla.jpg",
+                groups: ["5C", "5D"]
+            },
+            {
+                name: "PATRICIA OTÁLORA PORTILLO",
+                gender: "f",
+                subjects: {
+                    "5A": ["Educación Física"],
+                    "5B": ["Educación Física"],
+                    "5C": ["Educación Física"],
+                    "5D": ["Educación Física"]
                 },
                 imageFile: "gloria_otalora.jpg",
                 groups: ["5A", "5B", "5C", "5D"]
             },
             {
                 name: "INGRID YICETH DIAZ MOSQUERA",
+                gender: "f",
                 subjects: {
                     "5A": ["Arts"],
                     "5B": ["Arts"],
@@ -2033,31 +2149,35 @@
                 groups: ["5A", "5B", "5C", "5D"]
             },
             {
-                name: "JUAN DIEGO CUELLAR MAZABEL",
+                name: "JHONATHAN STIVEN CUBILLOS FLOR",
+                gender: "m",
                 subjects: {
-                    "5A": ["Technology"],
-                    "5B": ["Technology"],
-                    "5C": ["Technology"],
-                    "5D": ["Technology"]
+                    "5A": ["Ethics"],
+                    "5B": ["Ethics"],
+                    "5C": ["Ethics"],
+                    "5D": ["Ethics"]
                 },
-                imageFile: "juan_cuellar.jpg",
+                imageFile: "jhonathan_cubillos.jpg",
                 groups: ["5A", "5B", "5C", "5D"]
             }
         ];
 
         // Subject display order
         const subjectOrder = [
-            "Lenguaje / Plan Lector",
-            "Matemáticas y Geometría",
+            "Lenguaje",
+            "Matemáticas",
+            "Geometría",
             "English",
-            "Ciencias Sociales / Cátedra Paz",
+            "Ciencias Sociales",
+            "Cátedra por la Paz",
             "Science",
             "Ciencias Naturales",
             "Arts",
-            "Educación Física y Danzas",
             "Educación Física",
             "Ethics",
-            "Technology"
+            "Technology",
+            "Plan Lector",
+            "Religión"
         ];
 
         const questions = [
@@ -2259,6 +2379,7 @@
                 .filter(teacher => teacher.groups.includes(group))
                 .map(teacher => ({
                     name: teacher.name,
+                    gender: teacher.gender || 'f',
                     subjects: teacher.subjects[group] || [],
                     imageFile: teacher.imageFile
                 }))
@@ -2322,7 +2443,8 @@
 
         function personalizeQuestion(qText, teacher) {
             const firstName = getTeacherFirstName(teacher.name);
-            const gender = guessGender(teacher.name);
+            // Use explicit gender field stored in teacher data
+            const gender = teacher.gender || 'f';
             const pronoun = gender === 'f' ? 'la profesora' : 'el profesor';
             const article = gender === 'f' ? 'la docente' : 'el docente';
 

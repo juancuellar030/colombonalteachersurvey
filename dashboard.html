@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Evaluación Docente</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            /* Light Theme */
+            --primary: #4ade80;
+            /* Brighter, more modern green */
+            --primary-dark: #22c55e;
+            --primary-light: #bbf7d0;
+            --primary-bg: #f0fdf4;
+
+            --secondary: #60a5fa;
+            /* Blue */
+            --secondary-dark: #3b82f6;
+
+            --accent: #f472b6;
+            /* Red/Pink accent */
+            --accent-dark: #ef4444;
+
+            --background: #f8fafc;
+            --surface: #ffffff;
+            --surface-hover: #f1f5f9;
+
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --text-light: #94a3b8;
+
+            --border: #e2e8f0;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+        }
+
+        [data-theme="dark"] {
+            --primary: #22c55e;
+            --primary-dark: #16a34a;
+            --primary-bg: rgba(34, 197, 94, 0.1);
+            --background: #0f172a;
+            --surface: #1e293b;
+            --surface-hover: #334155;
+            --text-main: #f8fafc;
+            --text-muted: #cbd5e1;
+            --border: #334155;
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--background);
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 100%);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            flex: 1;
+            width: 100%;
+        }
+
+        .card {
+            background-color: var(--surface);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        /* Login Screen */
+        #loginScreen {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 60vh;
+        }
+
+        .login-card {
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        input[type="password"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            background-color: var(--surface);
+            color: var(--text-main);
+            transition: border-color 0.3s;
+        }
+
+        input[type="password"]:focus,
+        input[type="date"]:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-bg);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--secondary-dark);
+        }
+
+        /* Dashboard specific */
+        .filters {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            align-items: end;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            padding: 1.5rem;
+            text-align: center;
+            border-radius: var(--radius-lg);
+            background: var(--surface);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            line-height: 1.2;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* Charts grid */
+        .charts-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 900px) {
+            .charts-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .chart-full-width {
+                grid-column: 1 / -1;
+            }
+        }
+
+        .chart-container {
+            position: relative;
+            height: 400px;
+            width: 100%;
+        }
+
+        /* Comments */
+        .comments-section {
+            margin-top: 2rem;
+        }
+
+        .comment {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .comment:last-child {
+            border-bottom: none;
+        }
+
+        .comment-header {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .comment-text {
+            font-size: 1rem;
+            color: var(--text-main);
+            font-style: italic;
+        }
+
+        /* Error/Loading state */
+        #errorMsg {
+            color: var(--accent-dark);
+            margin-top: 1rem;
+            font-weight: 600;
+            display: none;
+        }
+
+        .loader {
+            display: none;
+            width: 40px;
+            height: 40px;
+            border: 4px solid var(--border);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 2rem auto;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+
+            .no-print {
+                display: none !important;
+            }
+
+            .card {
+                box-shadow: none;
+                border: 1px solid #ccc;
+                break-inside: avoid;
+            }
+
+            .charts-grid {
+                display: block;
+            }
+
+            .chart-container {
+                height: 300px;
+                margin-bottom: 2rem;
+                page-break-inside: avoid;
+            }
+        }
+
+        /* Theme toggle */
+        .theme-toggle {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: background 0.3s;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .toolbar {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Dashboard de Resultados</h1>
+        <p>Evaluación Docente Colombo Inglés del Huila</p>
+        <button class="theme-toggle no-print" onclick="toggleTheme()" title="Cambiar tema">
+            <svg id="themeIcon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+        </button>
+    </header>
+
+    <div class="container">
+
+        <!-- Login Screen -->
+        <div id="loginScreen">
+            <div class="card login-card">
+                <h2 style="margin-bottom: 1.5rem;">Acceso Restringido</h2>
+                <div class="input-group">
+                    <label for="passwordInput">Contraseña</label>
+                    <input type="password" id="passwordInput" placeholder="Ingresa la contraseña"
+                        onkeypress="if(event.key === 'Enter') login()">
+                </div>
+                <button class="btn" onclick="login()">Ingresar</button>
+                <div class="loader" id="loginLoader"></div>
+                <p id="errorMsg"></p>
+            </div>
+        </div>
+
+        <!-- Dashboard Screen -->
+        <div id="dashboardScreen" style="display: none;">
+
+            <!-- Filters -->
+            <div class="card no-print">
+                <h3 style="margin-bottom: 1rem;">Filtros</h3>
+                <div class="filters">
+                    <div class="input-group">
+                        <label for="filterGroup">Grupo</label>
+                        <select id="filterGroup" onchange="updateDashboard()">
+                            <option value="ALL">Todos los grupos</option>
+                            <!-- Populated via JS -->
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="filterTeacher">Docente</label>
+                        <select id="filterTeacher" onchange="updateDashboard()">
+                            <option value="ALL">Todos los docentes</option>
+                            <!-- Populated via JS -->
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="filterDateStart">Fecha Inicio</label>
+                        <input type="date" id="filterDateStart" onchange="updateDashboard()">
+                    </div>
+                    <div class="input-group">
+                        <label for="filterDateEnd">Fecha Fin</label>
+                        <input type="date" id="filterDateEnd" onchange="updateDashboard()">
+                    </div>
+                </div>
+                <div class="toolbar">
+                    <button class="btn btn-secondary" onclick="exportCSV()">Descargar CSV</button>
+                    <button class="btn btn-outline" onclick="window.print()">Imprimir / PDF</button>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="statTotal">0</div>
+                    <div class="stat-label">Evaluaciones Totales</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="statScore">0.00</div>
+                    <div class="stat-label">Promedio Global</div>
+                </div>
+            </div>
+
+            <!-- Charts -->
+            <div class="card">
+                <h3 style="margin-bottom: 1.5rem;" id="chartTitle">Análisis General</h3>
+                <div class="charts-grid">
+                    <div class="chart-container chart-full-width">
+                        <canvas id="barChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="radarChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="pieChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comments -->
+            <div class="card">
+                <h3 style="margin-bottom: 1rem;">Comentarios (<span id="commentsCount">0</span>)</h3>
+                <div class="comments-section" id="commentsContainer">
+                    <!-- Populated via JS -->
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        // --- CONFIGURATION ---
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxy50BOQGfHKCA587774yQZZ--w_8iKdsFJsTD1w6W9cRlRtWS_q41Ms83ii8M5oEvwRw/exec';
+        const APP_PASSWORD = 'docentecolombo26';
+
+        const ANSWER_VALUES = {
+            "Siempre": 4,
+            "Casi siempre": 3,
+            "Casi nunca": 2,
+            "Nunca": 1
+        };
+
+        const QUESTIONS = [
+            "¿Las clases del profesor son chéveres, divertidas, interesantes, y que facilitan mi aprendizaje?",
+            "¿El docente permite realizar actividades de grupo en la clase?",
+            "¿El docente exige el buen comportamiento para desarrollar la clase?",
+            "¿La clase del docente se desarrolla con respeto y disciplina?",
+            "¿El docente permite o me motiva permanente a que yo participe en clase?",
+            "¿El profesor aclara dudas cuando lo solicitas?",
+            "¿El docente es puntual en la llegada a clase?",
+            "¿El docente atiende con respeto las inquietudes o dudas que se presentan?",
+            "¿El docente responde tus preguntas con respeto y de manera oportuna?"
+        ];
+
+        let rawData = [];
+        let filteredData = [];
+        let charts = {};
+
+        // --- THEME ---
+        function toggleTheme() {
+            const html = document.documentElement;
+            const isDark = html.getAttribute('data-theme') === 'dark';
+            html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+
+            const icon = document.getElementById('themeIcon');
+            if (isDark) {
+                icon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
+            } else {
+                icon.innerHTML = '<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>';
+            }
+
+            // Re-render charts for theme colors
+            if (charts.bar) updateDashboard();
+        }
+
+        // --- AUTH & FETCH ---
+        async function login() {
+            const pwd = document.getElementById('passwordInput').value;
+            const errorMsg = document.getElementById('errorMsg');
+            const loader = document.getElementById('loginLoader');
+
+            if (pwd !== APP_PASSWORD) {
+                errorMsg.textContent = "Contraseña incorrecta";
+                errorMsg.style.display = "block";
+                return;
+            }
+
+            errorMsg.style.display = "none";
+            loader.style.display = "block";
+            document.querySelector('#loginScreen .btn').style.display = 'none';
+
+            try {
+                // Fetch data via GET using the URL param
+                const response = await fetch(`${SCRIPT_URL}?password=${encodeURIComponent(pwd)}`);
+                const result = await response.json();
+
+                if (result.status === 'success') {
+                    rawData = result.data;
+                    initDashboard();
+                } else {
+                    throw new Error(result.message || "Error desconocido");
+                }
+            } catch (err) {
+                errorMsg.textContent = "Error de conexión: " + err.message;
+                errorMsg.style.display = "block";
+                loader.style.display = "none";
+                document.querySelector('#loginScreen .btn').style.display = 'block';
+            }
+        }
+
+        function initDashboard() {
+            document.getElementById('loginScreen').style.display = 'none';
+            document.getElementById('dashboardScreen').style.display = 'block';
+
+            // Populate filters
+            const groups = [...new Set(rawData.map(r => r['Grupo']))].filter(Boolean).sort();
+            const teachers = [...new Set(rawData.map(r => r['Docente']))].filter(Boolean).sort();
+
+            const groupSelect = document.getElementById('filterGroup');
+            groups.forEach(g => {
+                const opt = document.createElement('option');
+                opt.value = g;
+                opt.textContent = g;
+                groupSelect.appendChild(opt);
+            });
+
+            const teacherSelect = document.getElementById('filterTeacher');
+            teachers.forEach(t => {
+                const opt = document.createElement('option');
+                opt.value = t;
+                opt.textContent = t;
+                teacherSelect.appendChild(opt);
+            });
+
+            // Set date limits
+            if (rawData.length > 0) {
+                const dates = rawData.map(r => new Date(r['Fecha y Hora']));
+                const min = new Date(Math.min(...dates)).toISOString().split('T')[0];
+                const max = new Date(Math.max(...dates)).toISOString().split('T')[0];
+
+                const startInput = document.getElementById('filterDateStart');
+                const endInput = document.getElementById('filterDateEnd');
+
+                startInput.value = min;
+                endInput.value = max;
+            }
+
+            updateDashboard();
+        }
+
+        // --- DASHBOARD UPDATE ---
+        function updateDashboard() {
+            // Apply filters
+            const groupFilter = document.getElementById('filterGroup').value;
+            const teacherFilter = document.getElementById('filterTeacher').value;
+            const startDate = new Date(document.getElementById('filterDateStart').value + 'T00:00:00');
+            const endDate = new Date(document.getElementById('filterDateEnd').value + 'T23:59:59');
+
+            filteredData = rawData.filter(row => {
+                const rowDate = new Date(row['Fecha y Hora']);
+                const matchGroup = groupFilter === 'ALL' || row['Grupo'] === groupFilter;
+                const matchTeacher = teacherFilter === 'ALL' || row['Docente'] === teacherFilter;
+                const matchDate = rowDate >= startDate && rowDate <= endDate;
+
+                return matchGroup && matchTeacher && matchDate;
+            });
+
+            document.getElementById('chartTitle').textContent = teacherFilter === 'ALL' ? 'Análisis Global' : `Análisis: ${teacherFilter}`;
+
+            renderStats();
+            renderCharts();
+            renderComments();
+        }
+
+        function renderStats() {
+            document.getElementById('statTotal').textContent = filteredData.length;
+
+            if (filteredData.length === 0) {
+                document.getElementById('statScore').textContent = "0.00";
+                return;
+            }
+
+            let totalScore = 0;
+            let expectedMax = 0;
+
+            filteredData.forEach(row => {
+                QUESTIONS.forEach(q => {
+                    const ans = row[q];
+                    if (ans && ANSWER_VALUES[ans]) {
+                        totalScore += ANSWER_VALUES[ans];
+                        expectedMax += 1;
+                    }
+                });
+            });
+
+            const avg = expectedMax > 0 ? (totalScore / expectedMax) : 0;
+            document.getElementById('statScore').textContent = avg.toFixed(2);
+        }
+
+        function renderComments() {
+            const container = document.getElementById('commentsContainer');
+            container.innerHTML = '';
+
+            const comments = filteredData
+                .filter(row => row['Comentarios'] && row['Comentarios'].trim() !== '')
+                .map(row => ({
+                    date: new Date(row['Fecha y Hora']).toLocaleDateString(),
+                    group: row['Grupo'],
+                    teacher: row['Docente'],
+                    text: row['Comentarios']
+                }));
+
+            document.getElementById('commentsCount').textContent = comments.length;
+
+            if (comments.length === 0) {
+                container.innerHTML = '<p class="text-muted">No hay comentarios en este filtro.</p>';
+                return;
+            }
+
+            comments.forEach(c => {
+                const div = document.createElement('div');
+                div.className = 'comment';
+                div.innerHTML = `
+                    <div class="comment-header">
+                        <span><strong>${c.group}</strong> - ${c.teacher}</span>
+                        <span>${c.date}</span>
+                    </div>
+                    <div class="comment-text">"${c.text}"</div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function renderCharts() {
+            if (filteredData.length === 0) {
+                // Clear charts
+                Object.values(charts).forEach(c => c && c.destroy());
+                return;
+            }
+
+            // Calculate question averages
+            const qAverages = QUESTIONS.map(q => {
+                let sum = 0, count = 0;
+                filteredData.forEach(row => {
+                    const ans = row[q];
+                    if (ans && ANSWER_VALUES[ans]) {
+                        sum += ANSWER_VALUES[ans];
+                        count++;
+                    }
+                });
+                return count > 0 ? (sum / count) : 0;
+            });
+
+            // Calculate distribution
+            const distribution = { "Siempre": 0, "Casi siempre": 0, "Casi nunca": 0, "Nunca": 0 };
+            filteredData.forEach(row => {
+                QUESTIONS.forEach(q => {
+                    const ans = row[q];
+                    if (ans && distribution.hasOwnProperty(ans)) {
+                        distribution[ans]++;
+                    }
+                });
+            });
+
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            const textColor = isDark ? '#f8fafc' : '#0f172a';
+            const gridColor = isDark ? '#334155' : '#e2e8f0';
+
+            Chart.defaults.color = textColor;
+            Chart.defaults.font.family = "'Montserrat', sans-serif";
+
+            // Bar Chart
+            const qLabels = QUESTIONS.map((_, i) => `P${i + 1}`);
+
+            if (charts.bar) charts.bar.destroy();
+            charts.bar = new Chart(document.getElementById('barChart'), {
+                type: 'bar',
+                data: {
+                    labels: qLabels,
+                    datasets: [{
+                        label: 'Promedio (1-4)',
+                        data: qAverages,
+                        backgroundColor: '#60a5fa',
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 4,
+                            grid: { color: gridColor }
+                        },
+                        x: { grid: { display: false } }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                title: (ctx) => QUESTIONS[ctx[0].dataIndex]
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Radar Chart
+            if (charts.radar) charts.radar.destroy();
+            charts.radar = new Chart(document.getElementById('radarChart'), {
+                type: 'radar',
+                data: {
+                    labels: qLabels,
+                    datasets: [{
+                        label: 'Promedio',
+                        data: qAverages,
+                        backgroundColor: 'rgba(244, 114, 182, 0.2)',
+                        borderColor: '#f472b6',
+                        pointBackgroundColor: '#f472b6'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: { color: gridColor },
+                            grid: { color: gridColor },
+                            pointLabels: { color: textColor },
+                            min: 0,
+                            max: 4
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false }
+                    }
+                }
+            });
+
+            // Pie Chart
+            if (charts.pie) charts.pie.destroy();
+            charts.pie = new Chart(document.getElementById('pieChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: Object.keys(distribution),
+                    datasets: [{
+                        data: Object.values(distribution),
+                        backgroundColor: [
+                            '#4ade80', // Siempre
+                            '#60a5fa', // Casi siempre
+                            '#fbbf24', // Casi nunca
+                            '#f87171'  // Nunca
+                        ],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '60%',
+                    plugins: {
+                        legend: { position: 'right' }
+                    }
+                }
+            });
+        }
+
+        // --- EXPORT ---
+        function exportCSV() {
+            if (filteredData.length === 0) return;
+
+            // Generate header
+            const headers = Object.keys(filteredData[0]);
+            let csvContent = headers.join(",") + "\n";
+
+            // Add rows
+            filteredData.forEach(row => {
+                const rowArray = headers.map(header => {
+                    let cell = row[header] === null || row[header] === undefined ? '' : row[header].toString();
+                    // Escape quotes and wrap in quotes if contains comma/newline
+                    if (cell.search(/("|,|\n)/g) >= 0) {
+                        cell = `"${cell.replace(/"/g, '""')}"`;
+                    }
+                    return cell;
+                });
+                csvContent += rowArray.join(",") + "\n";
+            });
+
+            // Create blob and download link
+            const blob = new Blob([new Uint8Array([0xEF, 0xBB, 0xBF]), csvContent], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement("a");
+            const url = URL.createObjectURL(blob);
+
+            link.setAttribute("href", url);
+            link.setAttribute("download", `Resultados_Evaluacion_${new Date().toISOString().split('T')[0]}.csv`);
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+    </script>
+</body>
+
+</html>
