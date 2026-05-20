@@ -513,8 +513,28 @@
             box-shadow: 0 4px 15px rgba(91, 97, 104, 0.2);
         }
 
-        .teacher-photo:hover {
-            transform: scale(1.1);
+        #imagePreviewContainer {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            transform: translate(15px, 15px);
+            /* Offset from cursor */
+        }
+
+        #imagePreviewContainer img {
+            max-width: 300px;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 4px solid white;
+        }
+
+        [data-theme="dark"] #imagePreviewContainer img {
+            border-color: rgb(61, 81, 97);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
         }
 
         .teacher-info-group {
@@ -1620,7 +1640,7 @@
                     "1C": ["Lenguaje", "Plan Lector", "Religión"],
                     "1D": ["Lenguaje", "Plan Lector", "Religión"]
                 },
-                imageFile: "karla_cabrera.jpg",
+                imageFile: "karla_cabrera.jpeg",
                 groups: ["1A", "1B", "1C", "1D"]
             },
             {
@@ -1663,7 +1683,7 @@
                 subjects: {
                     "1C": ["English", "Science"]
                 },
-                imageFile: "walter_tafur.jpg",
+                imageFile: "walter_tafur.jpeg",
                 groups: ["1C"]
             },
             {
@@ -1675,7 +1695,7 @@
                     "1C": ["Technology"],
                     "1D": ["Technology", "Science", "English"]
                 },
-                imageFile: "sergio_medina.jpg",
+                imageFile: "sergio_medina.jpeg",
                 groups: ["1A", "1B", "1C", "1D"]
             },
             {
@@ -1685,7 +1705,7 @@
                     "1A": ["Educación Física"],
                     "1B": ["Educación Física"]
                 },
-                imageFile: "karla_cabrera.jpg",
+                imageFile: "karla_cabrera.jpeg",
                 groups: ["1A", "1B"]
             },
             {
@@ -1697,7 +1717,7 @@
                     "1C": ["Arts", "Educación Física"],
                     "1D": ["Arts", "Educación Física"]
                 },
-                imageFile: "ingrid_diaz.jpg",
+                imageFile: "ingrid_diaz.jpeg",
                 groups: ["1A", "1B", "1C", "1D"]
             },
             {
@@ -1709,7 +1729,7 @@
                     "1C": ["Ethics"],
                     "1D": ["Ethics"]
                 },
-                imageFile: "jhonathan_cubillos.jpg",
+                imageFile: "jhonathan_cubillos.jpeg",
                 groups: ["1A", "1B", "1C", "1D"]
             },
 
@@ -1722,7 +1742,7 @@
                     "2B": ["Lenguaje", "Ciencias Sociales", "Plan Lector", "Cátedra por la Paz"],
                     "2C": ["Lenguaje", "Ciencias Sociales", "Plan Lector", "Cátedra por la Paz"]
                 },
-                imageFile: "leidy_andrade.jpg",
+                imageFile: "leidy_andrade.jpeg",
                 groups: ["2A", "2B", "2C"]
             },
             {
@@ -1733,7 +1753,7 @@
                     "2B": ["Matemáticas", "Geometría"],
                     "2C": ["Matemáticas", "Geometría", "Religión"]
                 },
-                imageFile: "claudia_perdomo.jpg",
+                imageFile: "claudia_perdomo.jpeg",
                 groups: ["2A", "2B", "2C"]
             },
             {
@@ -1754,7 +1774,7 @@
                     "2A": ["English", "Science"],
                     "2B": ["English", "Science"]
                 },
-                imageFile: "edgardo_lozano.jpg",
+                imageFile: "edgardo_lozano.jpeg",
                 groups: ["2A", "2B"]
             },
             {
@@ -1784,7 +1804,7 @@
                     "2B": ["Religión"],
                     "2C": ["Religión"]
                 },
-                imageFile: "leidy_andrade.jpg",
+                imageFile: "leidy_andrade.jpeg",
                 groups: ["2B", "2C"]
             },
             {
@@ -1795,7 +1815,7 @@
                     "2B": ["Arts", "Educación Física"],
                     "2C": ["Arts", "Educación Física"]
                 },
-                imageFile: "ingrid_diaz.jpg",
+                imageFile: "ingrid_diaz.jpeg",
                 groups: ["2A", "2B", "2C"]
             },
             {
@@ -1806,7 +1826,7 @@
                     "2B": ["Ethics"],
                     "2C": ["Ethics"]
                 },
-                imageFile: "jhonathan_cubillos.jpg",
+                imageFile: "jhonathan_cubillos.jpeg",
                 groups: ["2A", "2B", "2C"]
             },
 
@@ -1819,7 +1839,7 @@
                     "3B": ["Lenguaje", "Ciencias Sociales", "Plan Lector", "Cátedra por la Paz"],
                     "3C": ["Lenguaje", "Ciencias Sociales", "Plan Lector", "Cátedra por la Paz"]
                 },
-                imageFile: "arelis_barreiro.jpg",
+                imageFile: "arelis_barreiro.jpeg",
                 groups: ["3A", "3B", "3C"]
             },
             {
@@ -1829,7 +1849,7 @@
                     "3A": ["Matemáticas", "Geometría"],
                     "3B": ["Matemáticas", "Geometría"]
                 },
-                imageFile: "claudia_perdomo.jpg",
+                imageFile: "claudia_perdomo.jpeg",
                 groups: ["3A", "3B"]
             },
             {
@@ -1838,7 +1858,7 @@
                 subjects: {
                     "3C": ["Matemáticas", "Geometría"]
                 },
-                imageFile: "juan_conta.jpg",
+                imageFile: "juan_conta.jpeg",
                 groups: ["3C"]
             },
             {
@@ -1859,7 +1879,7 @@
                     "3A": ["English", "Science"],
                     "3B": ["English", "Science"]
                 },
-                imageFile: "yuli_chala.jpg",
+                imageFile: "yuli_chala.png",
                 groups: ["3A", "3B"]
             },
             {
@@ -1868,7 +1888,7 @@
                 subjects: {
                     "3C": ["English", "Science"]
                 },
-                imageFile: "maria_losada.jpg",
+                imageFile: "maria_losada.jpeg",
                 groups: ["3C"]
             },
             {
@@ -1879,7 +1899,7 @@
                     "3B": ["Technology"],
                     "3C": ["Technology"]
                 },
-                imageFile: "juan_cuellar.jpg",
+                imageFile: "juan_cuellar.jpeg",
                 groups: ["3A", "3B", "3C"]
             },
             {
@@ -1900,7 +1920,7 @@
                     "3B": ["Educación Física"],
                     "3C": ["Educación Física"]
                 },
-                imageFile: "gloria_otalora.jpg",
+                imageFile: "patricia_otalora.jpeg",
                 groups: ["3A", "3B", "3C"]
             },
             {
@@ -1911,7 +1931,7 @@
                     "3B": ["Arts"],
                     "3C": ["Arts"]
                 },
-                imageFile: "ingrid_diaz.jpg",
+                imageFile: "ingrid_diaz.jpeg",
                 groups: ["3A", "3B", "3C"]
             },
             {
@@ -1922,7 +1942,7 @@
                     "3B": ["Ethics"],
                     "3C": ["Ethics"]
                 },
-                imageFile: "jhonathan_cubillos.jpg",
+                imageFile: "jhonathan_cubillos.jpeg",
                 groups: ["3A", "3B", "3C"]
             },
 
@@ -1968,7 +1988,7 @@
                     "4B": ["English"],
                     "4C": ["English"]
                 },
-                imageFile: "melany_ballesteros.jpg",
+                imageFile: "melany_ballesteros.jpeg",
                 groups: ["4A", "4B", "4C"]
             },
             {
@@ -1978,7 +1998,7 @@
                     "4A": ["Science"],
                     "4B": ["Science"]
                 },
-                imageFile: "maria_losada.jpg",
+                imageFile: "maria_losada.jpeg",
                 groups: ["4A", "4B"]
             },
             {
@@ -1989,7 +2009,7 @@
                     "4B": ["Technology"],
                     "4C": ["Technology", "Science"]
                 },
-                imageFile: "juan_cuellar.jpg",
+                imageFile: "juan_cuellar.jpeg",
                 groups: ["4A", "4B", "4C"]
             },
             {
@@ -2010,7 +2030,7 @@
                     "4B": ["Educación Física"],
                     "4C": ["Educación Física"]
                 },
-                imageFile: "gloria_otalora.jpg",
+                imageFile: "patricia_otalora.jpeg",
                 groups: ["4A", "4B", "4C"]
             },
             {
@@ -2021,7 +2041,7 @@
                     "4B": ["Arts"],
                     "4C": ["Arts"]
                 },
-                imageFile: "ingrid_diaz.jpg",
+                imageFile: "ingrid_diaz.jpeg",
                 groups: ["4A", "4B", "4C"]
             },
             {
@@ -2032,7 +2052,7 @@
                     "4B": ["Ethics"],
                     "4C": ["Ethics"]
                 },
-                imageFile: "jhonathan_cubillos.jpg",
+                imageFile: "jhonathan_cubillos.jpeg",
                 groups: ["4A", "4B", "4C"]
             },
 
@@ -2046,7 +2066,7 @@
                     "5C": ["Lenguaje", "Plan Lector"],
                     "5D": ["Lenguaje", "Plan Lector"]
                 },
-                imageFile: "lizeth_pelaez.jpg",
+                imageFile: "lizeth_pelaez.jpeg",
                 groups: ["5A", "5B", "5C", "5D"]
             },
             {
@@ -2058,7 +2078,7 @@
                     "5C": ["Matemáticas", "Geometría"],
                     "5D": ["Matemáticas", "Geometría"]
                 },
-                imageFile: "juan_conta.jpg",
+                imageFile: "juan_conta.jpeg",
                 groups: ["5A", "5B", "5C", "5D"]
             },
             {
@@ -2080,7 +2100,7 @@
                     "5A": ["English", "Science"],
                     "5B": ["English", "Science"]
                 },
-                imageFile: "martha_garcia.jpg",
+                imageFile: "martha_garcia.jpeg",
                 groups: ["5A", "5B"]
             },
             {
@@ -2090,7 +2110,7 @@
                     "5C": ["English"],
                     "5D": ["English"]
                 },
-                imageFile: "carlos_losada.jpg",
+                imageFile: "carlos_losada.jpeg",
                 groups: ["5C", "5D"]
             },
             {
@@ -2099,7 +2119,7 @@
                 subjects: {
                     "5D": ["Science"]
                 },
-                imageFile: "maria_losada.jpg",
+                imageFile: "maria_losada.jpeg",
                 groups: ["5D"]
             },
             {
@@ -2111,7 +2131,7 @@
                     "5C": ["Technology", "Science"],
                     "5D": ["Technology"]
                 },
-                imageFile: "juan_cuellar.jpg",
+                imageFile: "juan_cuellar.jpeg",
                 groups: ["5A", "5B", "5C", "5D"]
             },
             {
@@ -2121,7 +2141,7 @@
                     "5C": ["Ciencias Sociales", "Cátedra por la Paz"],
                     "5D": ["Ciencias Sociales", "Cátedra por la Paz"]
                 },
-                imageFile: "claudia_montilla.jpg",
+                imageFile: "claudia_montilla.jpeg",
                 groups: ["5C", "5D"]
             },
             {
@@ -2133,7 +2153,7 @@
                     "5C": ["Educación Física"],
                     "5D": ["Educación Física"]
                 },
-                imageFile: "gloria_otalora.jpg",
+                imageFile: "patricia_otalora.jpeg",
                 groups: ["5A", "5B", "5C", "5D"]
             },
             {
@@ -2145,7 +2165,7 @@
                     "5C": ["Arts"],
                     "5D": ["Arts"]
                 },
-                imageFile: "ingrid_diaz.jpg",
+                imageFile: "ingrid_diaz.jpeg",
                 groups: ["5A", "5B", "5C", "5D"]
             },
             {
@@ -2157,7 +2177,7 @@
                     "5C": ["Ethics"],
                     "5D": ["Ethics"]
                 },
-                imageFile: "jhonathan_cubillos.jpg",
+                imageFile: "jhonathan_cubillos.jpeg",
                 groups: ["5A", "5B", "5C", "5D"]
             }
         ];
@@ -2731,7 +2751,34 @@
 
             window.scrollTo(0, 0);
         }
+        // Image preview logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const photo = document.getElementById('teacherPhoto');
+            if (photo) {
+                photo.addEventListener('mouseenter', () => {
+                    const previewCont = document.getElementById('imagePreviewContainer');
+                    const previewImg = document.getElementById('imagePreview');
+                    previewImg.src = photo.src;
+                    previewCont.style.opacity = '1';
+                });
+
+                photo.addEventListener('mousemove', (e) => {
+                    const previewCont = document.getElementById('imagePreviewContainer');
+                    previewCont.style.left = e.clientX + 'px';
+                    previewCont.style.top = e.clientY + 'px';
+                });
+
+                photo.addEventListener('mouseleave', () => {
+                    const previewCont = document.getElementById('imagePreviewContainer');
+                    previewCont.style.opacity = '0';
+                });
+            }
+        });
     </script>
+
+    <div id="imagePreviewContainer">
+        <img id="imagePreview" src="" alt="Teacher Preview">
+    </div>
 </body>
 
 </html>

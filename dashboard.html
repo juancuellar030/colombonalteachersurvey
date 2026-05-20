@@ -650,13 +650,20 @@
             container.innerHTML = '';
 
             const comments = filteredData
-                .filter(row => row['Comentarios'] && row['Comentarios'].trim() !== '')
-                .map(row => ({
-                    date: new Date(row['Fecha y Hora']).toLocaleDateString(),
-                    group: row['Grupo'],
-                    teacher: row['Docente'],
-                    text: row['Comentarios']
-                }));
+                .filter(row => {
+                    // Map possible comment header names or the empty header space if the column was added retroactively
+                    const commentVal = row['Comentarios'] || row['Comentarios, observaciones o felicitaciones'] || row[''] || Object.values(row)[13];
+                    return commentVal && String(commentVal).trim() !== '';
+                })
+                .map(row => {
+                    const commentVal = row['Comentarios'] || row['Comentarios, observaciones o felicitaciones'] || row[''] || Object.values(row)[13];
+                    return {
+                        date: new Date(row['Fecha y Hora']).toLocaleDateString(),
+                        group: row['Grupo'],
+                        teacher: row['Docente'],
+                        text: String(commentVal).trim()
+                    };
+                });
 
             document.getElementById('commentsCount').textContent = comments.length;
 
