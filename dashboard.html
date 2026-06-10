@@ -516,6 +516,26 @@
                     </div>
                 </div>
 
+                <!-- Per-Question Charts -->
+                <div class="card">
+                    <h3 style="margin-bottom: 1.5rem">
+                        Distribución por Pregunta
+                    </h3>
+                    <div
+                        class="charts-grid"
+                        id="questionChartsGrid"
+                        style="
+                            grid-template-columns: repeat(
+                                auto-fit,
+                                minmax(280px, 1fr)
+                            );
+                            gap: 2rem 1rem;
+                        "
+                    >
+                        <!-- Populated via JS -->
+                    </div>
+                </div>
+
                 <!-- Comments -->
                 <div class="card">
                     <h3 style="margin-bottom: 1rem">
@@ -556,6 +576,7 @@
             let rawData = [];
             let filteredData = [];
             let charts = {};
+            let questionCharts = [];
 
             // --- THEME ---
             function toggleTheme() {
@@ -794,6 +815,8 @@
                 if (filteredData.length === 0) {
                     // Clear charts
                     Object.values(charts).forEach((c) => c && c.destroy());
+                    questionCharts.forEach((c) => c && c.destroy());
+                    questionCharts = [];
                     return;
                 }
 
@@ -944,6 +967,12 @@
                         maintainAspectRatio: false,
                         plugins: {
                             legend: { position: "right" },
+                            title: {
+                                display: true,
+                                text: "Distribución Global",
+                                color: textColor,
+                                font: { size: 14 },
+                            },
                             tooltip: {
                                 callbacks: {
                                     label: function (context) {
@@ -970,6 +999,106 @@
                             },
                         },
                     },
+                });
+
+                // Render individual per-question pie charts
+                questionCharts.forEach((c) => c && c.destroy());
+                questionCharts = [];
+
+                const questionChartsGrid =
+                    document.getElementById("questionChartsGrid");
+                questionChartsGrid.innerHTML = "";
+
+                QUESTIONS.forEach((q, i) => {
+                    const key = keys[4 + i];
+                    const qDistribution = {
+                        Siempre: 0,
+                        "Casi siempre": 0,
+                        "Casi nunca": 0,
+                        Nunca: 0,
+                    };
+
+                    if (key) {
+                        filteredData.forEach((row) => {
+                            const ans = row[key];
+                            if (ans && qDistribution.hasOwnProperty(ans)) {
+                                qDistribution[ans]++;
+                            }
+                        });
+                    }
+
+                    // Add to DOM
+                    const chartWrapper = document.createElement("div");
+                    chartWrapper.className = "chart-container";
+                    chartWrapper.style.height = "auto"; // allow natural height for flex
+                    chartWrapper.innerHTML = `
+                        <div style="font-size: 0.85rem; margin-bottom: 0.5rem; text-align: center; color: var(--text-main); font-weight: 600; min-height: 40px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;" title="${q}">P${i + 1}: ${q}</div>
+                        <div style="position: relative; height: 200px; width: 100%;">
+                            <canvas id="qChart_${i}"></canvas>
+                        </div>
+                    `;
+                    questionChartsGrid.appendChild(chartWrapper);
+
+                    // Create chart
+                    const ctx = document.getElementById(`qChart_${i}`);
+                    const qChart = new Chart(ctx, {
+                        type: "pie",
+                        data: {
+                            labels: Object.keys(qDistribution),
+                            datasets: [
+                                {
+                                    data: Object.values(qDistribution),
+                                    backgroundColor: [
+                                        "#4ade80", // Siempre
+                                        "#60a5fa", // Casi siempre
+                                        "#fbbf24", // Casi nunca
+                                        "#f87171", // Nunca
+                                    ],
+                                    borderWidth: 0,
+                                },
+                            ],
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                legend: {
+                                    position: "bottom",
+                                    labels: {
+                                        boxWidth: 12,
+                                        font: { size: 11 },
+                                        color: textColor,
+                                    },
+                                },
+                                tooltip: {
+                                    callbacks: {
+                                        label: function (context) {
+                                            let label = context.label || "";
+                                            if (label) {
+                                                label += ": ";
+                                            }
+                                            let value = context.raw || 0;
+                                            let total =
+                                                context.chart._metasets[
+                                                    context.datasetIndex
+                                                ].total;
+                                            let percentage =
+                                                total > 0
+                                                    ? Math.round(
+                                                          (value / total) * 100,
+                                                      ) + "%"
+                                                    : "0%";
+                                            label +=
+                                                value + " (" + percentage + ")";
+                                            return label;
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                    });
+
+                    questionCharts.push(qChart);
                 });
             }
 
